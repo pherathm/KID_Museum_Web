@@ -478,42 +478,35 @@
         </div>
 
         <!-- STYLES & JS ONLY FOR THESE SUBTABS -->
-        <style>
+     <style>
   .geo-subtab-bar {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
     margin: 18px 0 18px 0;
     border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 6px;
+    padding-bottom: 4px;
   }
 
-  /* Default subtab button */
   .geo-subtab-btn {
     border: none;
     background: transparent;
-    padding: 10px 18px;
+    padding: 6px 12px;
     border-radius: 999px;
-    font-size: 1rem;        /* 🔥 Bigger text */
-    font-weight: 700;        /* 🔥 Bold text */
+    font-size: 0.8rem;
     cursor: pointer;
-    color: #374151;          /* Gray-700 */
+    color: #4b5563;
     letter-spacing: 0.02em;
-    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    transition: background 0.15s ease, color 0.15s ease;
   }
 
-  /* Hover effect */
   .geo-subtab-btn:hover {
-    background: #ffe6d2;     /* Soft orange hover */
-    color: #111827;
+    background: #e5e7eb;
   }
 
-  /* ACTIVE BUTTON → ORANGE LIKE YOUR SIDEBAR */
   .geo-subtab-btn.geo-active {
-    background: #ff7a1a;     /* 🔥 Orange highlight */
-    color: white;
-    font-weight: 800;        /* Extra bold */
-    box-shadow: 0 2px 6px rgba(255, 122, 26, 0.35);
+    background: #111827;
+    color: #f9fafb;
   }
 
   .geo-subtab-panel {
