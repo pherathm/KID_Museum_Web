@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>KID Museum – Engagement & Equity Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Optional nicer font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 240px;
+      background: #111827;
+      color: #e5e7eb;
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .nav-button {
+      width: 100%;
+      text-align: left;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background: #1f2937;
+      color: #e5e7eb;
+      font-size: 0.8rem;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-bottom: 6px;
+      transition: background 0.15s ease, transform 0.05s ease;
+    }
+
+    .nav-button:hover {
+      background: #374151;
+      transform: translateY(-1px);
+    }
+
+    .nav-button.active {
+      background: #f97316;
+      color: #111827;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      flex: 1;
+      background: #f9fafb;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    .header {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: #f97316;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .header-text-main {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #f97316;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .header-text-sub {
+      font-size: 0.8rem;
+      color: #4b5563;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    /* CONTENT AREA */
+    .content {
+      padding: 24px 32px 32px 32px;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 16px 18px 18px 18px;
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+      margin-bottom: 18px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .card-subtitle {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 650px;
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .muted {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      .nav-button {
+        flex: 1;
+        text-align: center;
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-title">KID DASHBOARD</div>
+    <button class="nav-button active" onclick="switchTab('home')">Home</button>
+    <button class="nav-button" onclick="switchTab('geo')">Geographic Engagement</button>
+    <button class="nav-button" onclick="switchTab('trends')">Trends & Attrition</button>
+    <button class="nav-button" onclick="switchTab('forecast')">Forecasting & Candidates</button>
+    <button class="nav-button" onclick="switchTab('ladder')">Engagement Ladder</button>
+    <button class="nav-button" onclick="switchTab('equity')">Equity & Methods</button>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo-box">KID</div>
+      <div>
+        <div class="header-text-main">KID MUSEUM – ENGAGEMENT & EQUITY DASHBOARD</div>
+        <div class="header-text-sub">
+          INTERACTIVE OVERVIEW OF SCHOOL ENGAGEMENT, PROGRAM DEMAND, AND EQUITY ACROSS MCPS, DCPS, AND PARTNER SCHOOLS.
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <!-- HOME TAB -->
+      <section id="tab-home" class="tab-content active">
+        <h1 class="section-title">Home</h1>
+        <p class="section-subtitle">
+          This dashboard pulls together geographic engagement, trends over time, candidate school
+          forecasting, and equity lenses to support KID Museum’s strategic decision-making.
+        </p>
+
+        <div class="card">
+          <div class="card-title">How to use this dashboard</div>
+          <div class="card-subtitle">
+            Use the left-hand navigation (similar to a Shiny sidebar) to move between views.
+          </div>
+          <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
+            <li><b>Geographic Engagement:</b> Map of schools, programs, and equity buffers.</li>
+            <li><b>Trends & Attrition:</b> Space for time-series charts and retention views.</li>
+            <li><b>Forecasting & Candidates:</b> Future visuals for capacity and candidate schools.</li>
+            <li><b>Engagement Ladder:</b> Planned Sankey or pathway visual for families and schools.</li>
+            <li><b>Equity & Methods:</b> Definitions, filters, and notes on how “underserved” and “underrepresented” are defined.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- GEOGRAPHIC ENGAGEMENT TAB -->
+      <section id="tab-geo" class="tab-content">
+        <h1 class="section-title">Geographic Engagement</h1>
+        <p class="section-subtitle">
+          Map of MCPS and DCPS schools, program touchpoints, and equity-focused buffers around
+          the Ft Totten and Bethesda Metro KID Museum locations.
+        </p>
+
+        <div class="card">
+          <div class="card-title">After-School – Map & Video (Map Placeholder)</div>
+          <div class="card-subtitle">
+            The interactive Folium map is embedded below. Click markers and buffers for details.
+          </div>
+
+          <!-- This loads your Folium map file from the same repo -->
+          <iframe
+            class="map-frame"
+            src="kid_schools_programs_buffers_with_legend.html"
+            loading="lazy"
+          ></iframe>
+
+          <p class="muted" style="margin-top:10px;">
+            AFTER-SCHOOL CONTENT / VIDEO EMBEDS CAN BE ADDED BELOW THIS MAP LATER.
+          </p>
+        </div>
+      </section>
+
+      <!-- TRENDS & ATTRITION TAB -->
+      <section id="tab-trends" class="tab-content">
+        <h1 class="section-title">Trends & Attrition</h1>
+        <p class="section-subtitle">
+          Placeholder for monthly/quarterly trends in field trips, after-school programs, and
+          general admissions, plus attrition from booked to actual attendance.
+        </p>
+
+        <div class="card">
+          <div class="card-title">Planned charts</div>
+          <div class="card-subtitle">
+            Once your Plotly/Streamlit visuals are exported to HTML, they can be embedded here.
+          </div>
+          <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
+            <li>Field trip bookings vs. actual attendance by month/quarter.</li>
+            <li>Program participation by grade band, district, or program type.</li>
+            <li>Attrition rates and potential capacity “gaps”.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- FORECASTING & CANDIDATES TAB -->
+      <section id="tab-forecast" class="tab-content">
+        <h1 class="section-title">Forecasting & Candidates</h1>
+        <p class="section-subtitle">
+          Space reserved for forecasting demand and highlighting candidate schools that could
+          benefit from KID Museum’s approach.
+        </p>
+
+        <div class="card">
+          <div class="card-title">Candidate schools & capacity</div>
+          <div class="card-subtitle">
+            Use this section later for candidate school maps, lists, or forecasting charts.
+          </div>
+          <p style="font-size:0.9rem; color:#4b5563;">
+            You can export any Python/Power BI/Tableau visuals as stand-alone HTML files (for example,
+            <code>candidate_schools.html</code>) and embed them here inside an
+            <code>&lt;iframe&gt;</code>, just like the main map.
+          </p>
+        </div>
+      </section>
+
+      <!-- ENGAGEMENT LADDER TAB -->
+      <section id="tab-ladder" class="tab-content">
+        <h1 class="section-title">Engagement Ladder</h1>
+        <p class="section-subtitle">
+          Placeholder for a ladder-of-engagement or Sankey diagram showing how schools and
+          families move through KID Museum’s ecosystem (first touch → deeper engagement).
+        </p>
+
+        <div class="card">
+          <div class="card-title">Planned visuals</div>
+          <div class="card-subtitle">
+            Ideas for data storytelling in this section.
+          </div>
+          <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
+            <li>Sankey diagram of field trips → after-school → camps → teen programs.</li>
+            <li>Family engagement pathways across different program types.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EQUITY & METHODS TAB -->
+      <section id="tab-equity" class="tab-content">
+        <h1 class="section-title">Equity & Methods</h1>
+        <p class="section-subtitle">
+          Definitions and methodology for how “Title I”, “CEP”, high FARMs, “underserved”, and
+          “underrepresented” are used in this dashboard.
+        </p>
+
+        <div class="card">
+          <div class="card-title">Equity lenses used in the map</div>
+          <div class="card-subtitle">
+            Brief notes (you can replace with your own wording).
+          </div>
+          <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
+            <li><b>Title I:</b> Schools designated as Title I in 2025–26.</li>
+            <li><b>CEP:</b> Schools participating in the Community Eligibility Provision.</li>
+            <li><b>High FARMs:</b> Schools above a specified FARMs threshold (e.g., 40%).</li>
+            <li><b>Underserved / Underrepresented:</b> Composite flags based on FARMs, race/ethnicity, and other indicators.</li>
+          </ul>
+
+          <div class="pill-row">
+            <span class="pill">Title I</span>
+            <span class="pill">CEP</span>
+            <span class="pill">High FARMs</span>
+            <span class="pill">Underserved</span>
+            <span class="pill">Underrepresented</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function switchTab(name) {
+    // content
+    document.querySelectorAll('.tab-content').forEach(sec => {
+      sec.classList.remove('active');
+    });
+    document.getElementById('tab-' + name).classList.add('active');
+
+    // buttons
+    document.querySelectorAll('.nav-button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    // find the button whose onclick includes this name
+    document.querySelectorAll('.nav-button').forEach(btn => {
+      if (btn.getAttribute('onclick').includes("'" + name + "'")) {
+        btn.classList.add('active');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
