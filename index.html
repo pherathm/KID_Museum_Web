@@ -301,9 +301,9 @@
 
         <!-- SUBTABS JUST FOR GEOGRAPHIC ENGAGEMENT -->
         <div class="geo-subtab-bar">
-          <button class="geo-subtab-btn geo-active" onclick="showGeoSubtab('ga')" id="geo-btn-ga">
-            General Admissions – Reach & Access
-          </button>
+          <button class="geo-subtab-btn" onclick="showGeoSubtab('heat')" id="geo-btn-heat">
+  Heat Map View
+</button>
           <button class="geo-subtab-btn" onclick="showGeoSubtab('ft')" id="geo-btn-ft">
             Field Trips – Engagement & Access
           </button>
@@ -446,54 +446,7 @@
           </div>
         </div>
 
-        <!-- SUBTAB 4: SCHOOL DEMOGRAPHIC & EQUITY LAYERS -->
-        <div id="geo-subtab-equity" class="geo-subtab-panel">
-          <div class="two-column">
-            <!-- LEFT: MAP (your original big map) -->
-            <div class="card">
-              <div class="card-title">School Demographic & Equity Map</div>
-              <div class="card-subtitle">
-                Schools and communities with equity lenses applied (Title I, CEP, FARMs, URM, and more),
-                plus program participation.
-              </div>
-
-              <iframe
-                class="map-frame"
-                src="kid_schools_programs_buffers_with_legend.html"
-                loading="lazy"
-              ></iframe>
-
-              <p class="muted" style="margin-top:10px;">
-                MAP GENERATED VIA PYTHON / FOLIUM · HOSTED AS HTML IN THIS REPOSITORY
-              </p>
-            </div>
-
-            <!-- RIGHT: EXPLANATION CARD -->
-            <div class="card">
-              <div class="card-title">How to read this map</div>
-              <div class="card-subtitle">
-                Summary of key layers and how they connect to KID Museum’s outreach strategy.
-              </div>
-              <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
-                <li><b>Dots:</b> MCPS + DC schools (with program participation where applicable).</li>
-                <li><b>Colors:</b> General Admissions, After-School, and Field Trip visits.</li>
-                <li><b>Buffers:</b> 1-mile rings around schools flagged as Title I, CEP,
-                    high FARMs, underserved, or underrepresented.</li>
-                <li><b>Rings:</b> 10-mile and 25-mile catchment areas around Ft Totten and
-                    Bethesda Metro KID Museum sites.</li>
-              </ul>
-
-              <div class="card-subtitle">
-                Possible future additions:
-                <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
-                  <li>Demographic charts (race/ethnicity, languages, SES) by school.</li>
-                  <li>Relationships between equity indicators and program engagement.</li>
-                  <li>Community-level layers like medically underserved areas.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+       
 
         <!-- STYLES & JS ONLY FOR THESE SUBTABS -->
         <style>
