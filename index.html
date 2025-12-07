@@ -5,7 +5,7 @@
   <title>KID Museum – Engagement & Equity Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Nice font -->
+  <!-- (Poppins link can stay, but we override with Georgia everywhere) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -16,9 +16,17 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: Georgia, "Times New Roman", serif;
       background: #f3f4f6;
       color: #111827;
+    }
+
+    /* Force Georgia everywhere */
+    h1, h2, h3, h4, h5, h6,
+    p, li, a, button,
+    .card-title, .section-title, .section-subtitle,
+    .nav-button, .muted, .pill {
+      font-family: Georgia, "Times New Roman", serif !important;
     }
 
     .layout {
@@ -91,7 +99,7 @@
 
     /* LOGO IMAGE */
     .logo-img {
-      height: 80px;   /* make it bigger */
+      height: 80px;
       max-width: 260px;
       width: auto;
       border-radius: 8px;
@@ -247,7 +255,6 @@
   <div class="main">
     <!-- HEADER -->
     <header class="header">
-      <!-- Your logo image -->
       <img src="kid_logo.png" alt="KID Museum Logo" class="logo-img">
       <div>
         <div class="header-text-main">KID MUSEUM – ENGAGEMENT & EQUITY DASHBOARD</div>
@@ -263,21 +270,39 @@
       <!-- HOME TAB -->
       <section id="tab-home" class="tab-content active">
         <h1 class="section-title">Home</h1>
-        <p class="section-subtitle">
-          This dashboard brings together geographic engagement, program trends, candidate schools,
-          and equity lenses to support KID Museum’s strategic decision-making and partnerships.
-        </p>
+
+        <!-- Updated description with darker background -->
+        <div style="
+            background:#eef1f4;
+            padding:20px 24px;
+            border-radius:14px;
+            margin-bottom:24px;
+            max-width:900px;
+        ">
+          <p class="section-subtitle" style="font-size: 1.05rem; line-height: 1.6; margin:0;">
+            This dashboard supports KID Museum’s strategic program planning and outreach to local schools.
+            It helps the organization understand which schools are most accessible, the communities they
+            serve, and how student engagement changes over time. By integrating GIS data, census
+            demographics, and program participation records, this project identifies outreach opportunities,
+            highlights equity considerations, forecasts program demand, and provides insights that guide
+            decision-making and strengthen partnerships.
+            <br><br>
+            As part of this work, different analytical techniques come together, including geospatial
+            mapping, forecasting, and dashboard design. These components create a comprehensive tool that
+            helps communicate meaningful patterns to both technical and non-technical audiences.
+          </p>
+        </div>
 
         <div class="card">
           <div class="card-title">How to use this dashboard</div>
           <div class="card-subtitle">
-            Use the left navigation to move between views (similar to a Shiny sidebar layout).
+            Select a section from the left navigation menu to explore different components of the dashboard.
           </div>
           <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
             <li><b>Geographic Engagement:</b> Map of schools, program touchpoints, and equity buffers.</li>
-            <li><b>Trends & Attrition:</b> Space for monthly/quarterly trends in program participation.</li>
+            <li><b>Trends & Attrition:</b> Space for monthly and quarterly trends in program participation.</li>
             <li><b>Forecasting & Candidates:</b> Future visuals highlighting demand and candidate schools.</li>
-            <li><b>Engagement Ladder:</b> Planned pathway/ladder visual for families and schools.</li>
+            <li><b>Engagement Ladder:</b> Planned pathway and ladder visual for families and schools.</li>
             <li><b>Equity & Methods:</b> Definitions and methodological notes for equity categories.</li>
           </ul>
         </div>
@@ -318,7 +343,6 @@
                 rings around KID Museum sites.
               </div>
 
-              <!-- GA MAP -->
               <iframe
                 class="map-frame"
                 src="ga_map.html"
@@ -334,7 +358,6 @@
                 and Bethesda Metro (3BMC).
               </div>
 
-              <!-- GA GRAPHS -->
               <iframe
                 class="graph-frame"
                 src="ga_radius_graphs.html"
@@ -362,7 +385,6 @@
                 Map of schools participating in KID Museum field trips, with optional layers for equity and access.
               </div>
 
-              <!-- FIELD TRIPS MAP -->
               <iframe
                 class="map-frame"
                 src="field_trips_map.html"
@@ -377,7 +399,6 @@
                 Charts showing field trip engagement by mileage band or travel time from KID Museum sites.
               </div>
 
-              <!-- FIELD TRIPS GRAPHS -->
               <iframe
                 class="graph-frame"
                 src="field_trips_radius_graphs.html"
@@ -405,7 +426,6 @@
                 After-school program locations and access buffers around KID Museum sites.
               </div>
 
-              <!-- AFTER-SCHOOL MAP -->
               <iframe
                 class="map-frame"
                 src="after_school_map.html"
@@ -420,7 +440,6 @@
                 Bar charts showing after-school engagement by distance or travel-time bands.
               </div>
 
-              <!-- AFTER-SCHOOL GRAPHS -->
               <iframe
                 class="graph-frame"
                 src="after_school_radius_graphs.html"
@@ -449,7 +468,7 @@
           </div>
         </div>
 
-        <!-- STYLES & JS ONLY FOR THESE SUBTABS -->
+        <!-- STYLES & JS ONLY FOR GEO SUBTABS -->
         <style>
           .geo-subtab-bar {
             display: flex;
@@ -505,17 +524,13 @@
 
         <script>
           function showGeoSubtab(id) {
-            // hide all subpanels
             document.querySelectorAll('#tab-geo .geo-subtab-panel')
               .forEach(function (p) { p.classList.remove('geo-active'); });
 
-            // deactivate all subtab buttons
             document.querySelectorAll('#tab-geo .geo-subtab-btn')
               .forEach(function (b) { b.classList.remove('geo-active'); });
 
-            // show selected subpanel
             document.getElementById('geo-subtab-' + id).classList.add('geo-active');
-            // activate selected button
             document.getElementById('geo-btn-' + id).classList.add('geo-active');
           }
         </script>
@@ -548,7 +563,6 @@
               Map and context focusing on the distribution of schools, basic characteristics, and program participation.
             </div>
 
-            <!-- Reusing combined map for now -->
             <iframe
               class="map-frame"
               src="kid_schools_programs_buffers_with_legend.html"
@@ -635,15 +649,12 @@
 
         <script>
           function showSchoolSubtab(id) {
-            // hide all panels in this tab
             document.querySelectorAll('#tab-school .school-subtab-panel')
               .forEach(function (p) { p.classList.remove('school-active'); });
 
-            // deactivate all buttons
             document.querySelectorAll('#tab-school .school-subtab-btn')
               .forEach(function (b) { b.classList.remove('school-active'); });
 
-            // show selected panel and activate corresponding button
             document.getElementById('school-subtab-' + id).classList.add('school-active');
             document.getElementById('school-btn-' + id).classList.add('school-active');
           }
@@ -706,7 +717,7 @@
           <div class="card-subtitle">
             Ideas for future data storytelling in this section.
           </div>
-          <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6%;">
+          <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
             <li>Sankey diagram of program pathways.</li>
             <li>Stage-based counts of schools or families across the engagement ladder.</li>
           </ul>
@@ -726,7 +737,7 @@
           <div class="card-subtitle">
             You can replace this placeholder text with your official definitions and notes.
           </div>
-          <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6%;">
+          <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
             <li><b>Title I:</b> Schools designated as Title I in 2025–26.</li>
             <li><b>CEP:</b> Schools participating in the Community Eligibility Provision.</li>
             <li><b>High FARMs:</b> Schools above a chosen FARMs threshold (e.g., &gt; 40%).</li>
@@ -749,13 +760,11 @@
 
 <script>
   function switchTab(name) {
-    // content
     document.querySelectorAll('.tab-content').forEach(sec => {
       sec.classList.remove('active');
     });
     document.getElementById('tab-' + name).classList.add('active');
 
-    // buttons
     document.querySelectorAll('.nav-button').forEach(btn => {
       btn.classList.remove('active');
     });
@@ -769,3 +778,4 @@
 
 </body>
 </html>
+
