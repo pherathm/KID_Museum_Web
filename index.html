@@ -19,7 +19,7 @@
       font-family: Georgia, "Times New Roman", serif;
       background: #f3f4f6;
       color: #111827;
-      font-size: 18px;       /* base size a bit larger */
+      font-size: 18px;
       line-height: 1.55;
     }
 
@@ -63,7 +63,7 @@
       border-radius: 6px;
       background: #1f2937;
       color: #e5e7eb;
-      font-size: 0.95rem;      /* bigger sidebar text */
+      font-size: 0.95rem;
       letter-spacing: 0.10em;
       text-transform: uppercase;
       cursor: pointer;
@@ -130,7 +130,7 @@
     }
 
     .section-title {
-      font-size: 1.85rem;   /* larger section titles */
+      font-size: 1.85rem;
       font-weight: 700;
       margin: 0 0 6px 0;
       text-transform: uppercase;
@@ -139,7 +139,7 @@
     }
 
     .section-subtitle {
-      font-size: 1.05rem;   /* slightly larger subtitle */
+      font-size: 1.05rem;
       color: #6b7280;
       margin-bottom: 18px;
       max-width: 900px;
@@ -155,7 +155,7 @@
     }
 
     .card-title {
-      font-size: 1.15rem;   /* bigger card titles */
+      font-size: 1.15rem;
       font-weight: 600;
       margin-bottom: 6px;
       text-transform: uppercase;
@@ -163,7 +163,7 @@
     }
 
     .card-subtitle {
-      font-size: 0.95rem;   /* bigger card subtitles */
+      font-size: 0.95rem;
       color: #6b7280;
       margin-bottom: 10px;
     }
@@ -361,7 +361,7 @@
 
               <iframe
                 class="graph-frame"
-                src="ga_radius_graphs.html"
+                src="general_admissions_radius_chart.html"
                 loading="lazy"
               ></iframe>
 
@@ -388,7 +388,7 @@
 
               <iframe
                 class="map-frame"
-                src="field_trips_map.html"
+                src="ft_map.html"
                 loading="lazy"
               ></iframe>
             </div>
@@ -402,7 +402,7 @@
 
               <iframe
                 class="graph-frame"
-                src="field_trips_radius_graphs.html"
+                src="field_trips_radius_chart.html"
                 loading="lazy"
               ></iframe>
 
@@ -429,7 +429,7 @@
 
               <iframe
                 class="map-frame"
-                src="after_school_map.html"
+                src="af_map.html"
                 loading="lazy"
               ></iframe>
             </div>
@@ -443,7 +443,7 @@
 
               <iframe
                 class="graph-frame"
-                src="after_school_radius_graphs.html"
+                src="after-school_radius_chart.html"
                 loading="lazy"
               ></iframe>
 
@@ -458,14 +458,24 @@
           </div>
         </div>
 
-        <!-- SUBTAB 4: HEAT MAP VIEW (PLACEHOLDER ONLY) -->
+        <!-- SUBTAB 4: HEAT MAP VIEW -->
         <div id="geo-subtab-heat" class="geo-subtab-panel">
           <div class="card">
-            <div class="card-title">Heat Map View</div>
+            <div class="card-title">Heat Map View – All Programs</div>
             <div class="card-subtitle">
-              This space is reserved for a future heat map view of school or engagement density.
-              A heat map HTML file can be embedded here later using an iframe, similar to the other maps.
+              Heat map showing combined program intensity across schools. This view helps identify clusters
+              of high engagement and potential gaps in outreach.
             </div>
+
+            <iframe
+              class="map-frame"
+              src="all_programs_heat.html"
+              loading="lazy"
+            ></iframe>
+
+            <p class="muted" style="margin-top:10px;">
+              HEAT MAP GENERATED VIA PYTHON / FOLIUM · HOSTED AS HTML IN THIS REPOSITORY
+            </p>
           </div>
         </div>
 
@@ -485,7 +495,7 @@
             background: transparent;
             padding: 6px 12px;
             border-radius: 999px;
-            font-size: 0.95rem;   /* bigger subtab labels */
+            font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
             color: #4b5563;
@@ -561,7 +571,8 @@
           <div class="card">
             <div class="card-title">School Demographic View</div>
             <div class="card-subtitle">
-              Map and context focusing on the distribution of schools, basic characteristics, and program participation.
+              Combined view of schools, program participation, and equity-related flags, used as a base
+              layer for demographic analysis.
             </div>
 
             <iframe
@@ -576,7 +587,7 @@
           </div>
         </div>
 
-        <!-- SUBTAB 2: EQUITY LAYERS -->
+        <!-- SUBTAB 2: EQUITY LAYERS (NO MAP YET) -->
         <div id="school-subtab-equity" class="school-subtab-panel">
           <div class="card">
             <div class="card-title">Equity Layers</div>
@@ -622,7 +633,7 @@
             background: transparent;
             padding: 6px 12px;
             border-radius: 999px;
-            font-size: 0.95rem;   /* bigger labels */
+            font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
             color: #4b5563;
@@ -779,5 +790,6 @@
 
 </body>
 </html>
+
 
 
