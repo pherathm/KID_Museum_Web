@@ -14,12 +14,12 @@
     * { box-sizing: border-box; }
 
     body {
-  margin: 0;
-  padding: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  background: #f3f4f6;
-  color: #111827;
-}
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+    }
 
     .layout {
       display: flex;
@@ -167,6 +167,15 @@
       overflow: hidden;
     }
 
+    .graph-frame {
+      width: 100%;
+      height: 420px;
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+      display: block;
+    }
+
     .muted {
       font-size: 0.9rem;
       color: #9ca3af;
@@ -227,6 +236,7 @@
     <div class="sidebar-title">KID DASHBOARD</div>
     <button class="nav-button active" onclick="switchTab('home')">Home</button>
     <button class="nav-button" onclick="switchTab('geo')">Geographic Engagement</button>
+    <button class="nav-button" onclick="switchTab('school')">School Demography & Equity Layers</button>
     <button class="nav-button" onclick="switchTab('trends')">Trends & Attrition</button>
     <button class="nav-button" onclick="switchTab('forecast')">Forecasting & Candidates</button>
     <button class="nav-button" onclick="switchTab('ladder')">Engagement Ladder</button>
@@ -253,32 +263,15 @@
       <!-- HOME TAB -->
       <section id="tab-home" class="tab-content active">
         <h1 class="section-title">Home</h1>
-        <div style="
-    background:#eef1f4;
-    padding:20px 24px;
-    border-radius:14px;
-    margin-bottom:24px;
-    max-width:900px;
-">
-  <p class="section-subtitle" style="font-size: 1.05rem; line-height: 1.6; margin:0;">
-    This dashboard supports KID Museum’s strategic program planning and outreach to local schools.
-    It helps the organization understand which schools are most accessible, the communities they
-    serve, and how student engagement changes over time. By integrating GIS data, census
-    demographics, and program participation records, this project identifies outreach opportunities,
-    highlights equity considerations, forecasts program demand, and provides insights that guide
-    decision-making and strengthen partnerships.
-    <br><br>
-    As part of this work, different analytical techniques come together, including geospatial
-    mapping, forecasting, and dashboard design. These components create a comprehensive tool that
-    helps communicate meaningful patterns to both technical and non-technical audiences.
-  </p>
-</div>
-
+        <p class="section-subtitle">
+          This dashboard brings together geographic engagement, program trends, candidate schools,
+          and equity lenses to support KID Museum’s strategic decision-making and partnerships.
+        </p>
 
         <div class="card">
           <div class="card-title">How to use this dashboard</div>
           <div class="card-subtitle">
-            Use the left navigation to move between views. 
+            Use the left navigation to move between views (similar to a Shiny sidebar layout).
           </div>
           <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
             <li><b>Geographic Engagement:</b> Map of schools, program touchpoints, and equity buffers.</li>
@@ -291,7 +284,6 @@
       </section>
 
       <!-- GEOGRAPHIC ENGAGEMENT TAB -->
-           <!-- GEOGRAPHIC ENGAGEMENT TAB -->
       <section id="tab-geo" class="tab-content">
         <h1 class="section-title">Geographic Engagement</h1>
         <p class="section-subtitle">
@@ -301,17 +293,17 @@
 
         <!-- SUBTABS JUST FOR GEOGRAPHIC ENGAGEMENT -->
         <div class="geo-subtab-bar">
-          <button class="geo-subtab-btn" onclick="showGeoSubtab('heat')" id="geo-btn-heat">
-  Heat Map View
-</button>
+          <button class="geo-subtab-btn geo-active" onclick="showGeoSubtab('ga')" id="geo-btn-ga">
+            General Admissions – Reach & Access
+          </button>
           <button class="geo-subtab-btn" onclick="showGeoSubtab('ft')" id="geo-btn-ft">
             Field Trips – Engagement & Access
           </button>
           <button class="geo-subtab-btn" onclick="showGeoSubtab('af')" id="geo-btn-af">
             After-School – Engagement & Access
           </button>
-          <button class="geo-subtab-btn" onclick="showGeoSubtab('equity')" id="geo-btn-equity">
-            School Demographic & Equity Layers
+          <button class="geo-subtab-btn" onclick="showGeoSubtab('heat')" id="geo-btn-heat">
+            Heat Map View
           </button>
         </div>
 
@@ -446,7 +438,16 @@
           </div>
         </div>
 
-       
+        <!-- SUBTAB 4: HEAT MAP VIEW (PLACEHOLDER ONLY) -->
+        <div id="geo-subtab-heat" class="geo-subtab-panel">
+          <div class="card">
+            <div class="card-title">Heat Map View</div>
+            <div class="card-subtitle">
+              This space is reserved for a future heat map view of school or engagement density.
+              A heat map HTML file can be embedded here later using an iframe, similar to the other maps.
+            </div>
+          </div>
+        </div>
 
         <!-- STYLES & JS ONLY FOR THESE SUBTABS -->
         <style>
@@ -460,18 +461,17 @@
           }
 
           .geo-subtab-btn {
-    border: none;
-    background: transparent;
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 700;    
-    cursor: pointer;
-    color: #4b5563;
-    letter-spacing: 0.02em;
-    transition: background 0.15s ease, color 0.15s ease;
-}
-
+            border: none;
+            background: transparent;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #4b5563;
+            letter-spacing: 0.02em;
+            transition: background 0.15s ease, color 0.15s ease;
+          }
 
           .geo-subtab-btn:hover {
             background: #e5e7eb;
@@ -488,6 +488,18 @@
 
           .geo-subtab-panel.geo-active {
             display: block;
+          }
+
+          .two-column {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            gap: 16px;
+          }
+
+          @media (max-width: 900px) {
+            .two-column {
+              grid-template-columns: 1fr;
+            }
           }
         </style>
 
@@ -509,6 +521,134 @@
         </script>
       </section>
 
+      <!-- SCHOOL DEMOGRAPHY & EQUITY LAYERS TAB -->
+      <section id="tab-school" class="tab-content">
+        <h1 class="section-title">School Demography & Equity Layers</h1>
+        <p class="section-subtitle">
+          This tab focuses on school-level demographics and the equity lenses used in this project,
+          including Title I, CEP, FARMs, and composite measures such as underserved and underrepresented.
+          It helps connect demographic context to KID Museum’s engagement patterns.
+        </p>
+
+        <!-- SUBTABS FOR THIS TAB -->
+        <div class="school-subtab-bar">
+          <button class="school-subtab-btn school-active" onclick="showSchoolSubtab('demo')" id="school-btn-demo">
+            School Demographic
+          </button>
+          <button class="school-subtab-btn" onclick="showSchoolSubtab('equity')" id="school-btn-equity">
+            Equity Layers
+          </button>
+        </div>
+
+        <!-- SUBTAB 1: SCHOOL DEMOGRAPHIC -->
+        <div id="school-subtab-demo" class="school-subtab-panel school-active">
+          <div class="card">
+            <div class="card-title">School Demographic View</div>
+            <div class="card-subtitle">
+              Map and context focusing on the distribution of schools, basic characteristics, and program participation.
+            </div>
+
+            <!-- Reusing combined map for now -->
+            <iframe
+              class="map-frame"
+              src="kid_schools_programs_buffers_with_legend.html"
+              loading="lazy"
+            ></iframe>
+
+            <p class="muted" style="margin-top:10px;">
+              MAP GENERATED VIA PYTHON / FOLIUM · HOSTED AS HTML IN THIS REPOSITORY
+            </p>
+          </div>
+        </div>
+
+        <!-- SUBTAB 2: EQUITY LAYERS -->
+        <div id="school-subtab-equity" class="school-subtab-panel">
+          <div class="card">
+            <div class="card-title">Equity Layers</div>
+            <div class="card-subtitle">
+              Definitions and interpretation of the equity-related indicators used on the maps and in this dashboard.
+            </div>
+
+            <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
+              <li><b>Title I:</b> Schools designated as Title I in the relevant school year.</li>
+              <li><b>CEP:</b> Schools participating in the Community Eligibility Provision.</li>
+              <li><b>High FARMs:</b> Schools above a chosen FARMs threshold (for example, &gt; 40%).</li>
+              <li><b>Underserved / Underrepresented:</b> Composite flags combining FARMs and race/ethnicity indicators.</li>
+            </ul>
+
+            <div class="pill-row">
+              <span class="pill">Title I</span>
+              <span class="pill">CEP</span>
+              <span class="pill">High FARMs</span>
+              <span class="pill">Underserved</span>
+              <span class="pill">Underrepresented</span>
+            </div>
+
+            <div class="card-subtitle" style="margin-top:12px;">
+              This tab is intended to connect the visual layers on the maps with clear definitions, so that
+              staff and partners can interpret the equity views confidently.
+            </div>
+          </div>
+        </div>
+
+        <!-- STYLES & JS FOR SCHOOL SUBTABS -->
+        <style>
+          .school-subtab-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 18px 0 18px 0;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 4px;
+          }
+
+          .school-subtab-btn {
+            border: none;
+            background: transparent;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #4b5563;
+            letter-spacing: 0.02em;
+            transition: background 0.15s ease, color 0.15s ease;
+          }
+
+          .school-subtab-btn:hover {
+            background: #e5e7eb;
+          }
+
+          .school-subtab-btn.school-active {
+            background: #111827;
+            color: #f9fafb;
+          }
+
+          .school-subtab-panel {
+            display: none;
+          }
+
+          .school-subtab-panel.school-active {
+            display: block;
+          }
+        </style>
+
+        <script>
+          function showSchoolSubtab(id) {
+            // hide all panels in this tab
+            document.querySelectorAll('#tab-school .school-subtab-panel')
+              .forEach(function (p) { p.classList.remove('school-active'); });
+
+            // deactivate all buttons
+            document.querySelectorAll('#tab-school .school-subtab-btn')
+              .forEach(function (b) { b.classList.remove('school-active'); });
+
+            // show selected panel and activate corresponding button
+            document.getElementById('school-subtab-' + id).classList.add('school-active');
+            document.getElementById('school-btn-' + id).classList.add('school-active');
+          }
+        </script>
+      </section>
 
       <!-- TRENDS & ATTRITION TAB -->
       <section id="tab-trends" class="tab-content">
@@ -566,7 +706,7 @@
           <div class="card-subtitle">
             Ideas for future data storytelling in this section.
           </div>
-          <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
+          <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6%;">
             <li>Sankey diagram of program pathways.</li>
             <li>Stage-based counts of schools or families across the engagement ladder.</li>
           </ul>
@@ -586,7 +726,7 @@
           <div class="card-subtitle">
             You can replace this placeholder text with your official definitions and notes.
           </div>
-          <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
+          <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6%;">
             <li><b>Title I:</b> Schools designated as Title I in 2025–26.</li>
             <li><b>CEP:</b> Schools participating in the Community Eligibility Provision.</li>
             <li><b>High FARMs:</b> Schools above a chosen FARMs threshold (e.g., &gt; 40%).</li>
