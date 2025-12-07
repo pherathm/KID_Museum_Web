@@ -273,7 +273,7 @@
         </div>
       </section>
 
-            <!-- GEOGRAPHIC ENGAGEMENT TAB -->
+      <!-- GEOGRAPHIC ENGAGEMENT TAB -->
       <section id="tab-geo" class="tab-content">
         <h1 class="section-title">Geographic Engagement</h1>
         <p class="section-subtitle">
@@ -281,243 +281,24 @@
           (Title I, CEP, FARMs, underserved, and underrepresented) around KID Museum sites.
         </p>
 
-        <!-- SUBTABS JUST FOR GEOGRAPHIC ENGAGEMENT -->
-        <div class="geo-subtab-bar">
-          <button class="geo-subtab-btn geo-active" onclick="showGeoSubtab('ga')" id="geo-btn-ga">
-            General Admissions – Reach & Access
-          </button>
-          <button class="geo-subtab-btn" onclick="showGeoSubtab('ft')" id="geo-btn-ft">
-            Field Trips – Engagement & Access
-          </button>
-          <button class="geo-subtab-btn" onclick="showGeoSubtab('af')" id="geo-btn-af">
-            After-School – Engagement & Access
-          </button>
-          <button class="geo-subtab-btn" onclick="showGeoSubtab('equity')" id="geo-btn-equity">
-            School Demographic & Equity Layers
-          </button>
-        </div>
-
-        <!-- SUBTAB 1: GENERAL ADMISSIONS -->
-        <div id="geo-subtab-ga" class="geo-subtab-panel geo-active">
-          <div class="two-column">
-            <!-- LEFT: MAP -->
-            <div class="card">
-              <div class="card-title">General Admissions Map</div>
-              <div class="card-subtitle">
-                Interactive map of General Admissions touchpoints. Layers can include equity buffers and
-                rings around KID Museum sites.
-              </div>
-
-              <!-- GA MAP -->
-              <iframe
-                class="map-frame"
-                src="ga_map.html"
-                loading="lazy"
-              ></iframe>
-            </div>
-
-            <!-- RIGHT: EASY TRANSPORTATION GRAPHS -->
-            <div class="card">
-              <div class="card-title">Easy Transportation Radius – General Admissions</div>
-              <div class="card-subtitle">
-                Bar charts summarizing General Admissions visitors by distance band from Ft Totten
-                and Bethesda Metro (3BMC).
-              </div>
-
-              <!-- GA GRAPHS -->
-              <iframe
-                class="graph-frame"
-                src="ga_radius_graphs.html"
-                loading="lazy"
-              ></iframe>
-
-              <div class="card-subtitle" style="margin-top:10px;">
-                Possible views:
-                <ul>
-                  <li>0–5, 5–10, 10–15 mile bands for Ft Totten and BMC.</li>
-                  <li>Comparison of GA visitors by school cluster or district.</li>
-                </ul>
-              </div>
-            </div>
+        <div class="card">
+          <div class="card-title">Schools, Programs & Equity Buffers Map</div>
+          <div class="card-subtitle">
+            Click markers and buffers to explore school attributes and program engagement.
           </div>
+
+          <!-- Embedded Folium map file -->
+          <iframe
+            class="map-frame"
+            src="kid_schools_programs_buffers_with_legend.html"
+            loading="lazy"
+          ></iframe>
+
+          <p class="muted" style="margin-top:10px;">
+            MAP GENERATED VIA PYTHON / FOLIUM · HOSTED AS HTML IN THIS REPOSITORY
+          </p>
         </div>
-
-        <!-- SUBTAB 2: FIELD TRIPS -->
-        <div id="geo-subtab-ft" class="geo-subtab-panel">
-          <div class="two-column">
-            <!-- LEFT: MAP -->
-            <div class="card">
-              <div class="card-title">Field Trips Map</div>
-              <div class="card-subtitle">
-                Map of schools participating in KID Museum field trips, with optional layers for equity and access.
-              </div>
-
-              <!-- FIELD TRIPS MAP -->
-              <iframe
-                class="map-frame"
-                src="field_trips_map.html"
-                loading="lazy"
-              ></iframe>
-            </div>
-
-            <!-- RIGHT: EASY TRANSPORTATION GRAPHS -->
-            <div class="card">
-              <div class="card-title">Easy Transportation Radius – Field Trips</div>
-              <div class="card-subtitle">
-                Charts showing field trip engagement by mileage band or travel time from KID Museum sites.
-              </div>
-
-              <!-- FIELD TRIPS GRAPHS -->
-              <iframe
-                class="graph-frame"
-                src="field_trips_radius_graphs.html"
-                loading="lazy"
-              ></iframe>
-
-              <div class="card-subtitle" style="margin-top:10px;">
-                Possible views:
-                <ul>
-                  <li>Field trips by distance band (e.g., &lt;10 miles, 10–25 miles).</li>
-                  <li>Difference between bookings and actual attendance by access zone.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SUBTAB 3: AFTER-SCHOOL -->
-        <div id="geo-subtab-af" class="geo-subtab-panel">
-          <div class="two-column">
-            <!-- LEFT: MAP -->
-            <div class="card">
-              <div class="card-title">After-School & Transportation Map</div>
-              <div class="card-subtitle">
-                After-school program locations and access buffers around KID Museum sites.
-              </div>
-
-              <!-- AFTER-SCHOOL MAP -->
-              <iframe
-                class="map-frame"
-                src="after_school_map.html"
-                loading="lazy"
-              ></iframe>
-            </div>
-
-            <!-- RIGHT: EASY TRANSPORTATION GRAPHS -->
-            <div class="card">
-              <div class="card-title">Easy Transportation Radius – After-School</div>
-              <div class="card-subtitle">
-                Bar charts showing after-school engagement by distance or travel-time bands.
-              </div>
-
-              <!-- AFTER-SCHOOL GRAPHS -->
-              <iframe
-                class="graph-frame"
-                src="after_school_radius_graphs.html"
-                loading="lazy"
-              ></iframe>
-
-              <div class="card-subtitle" style="margin-top:10px;">
-                Possible views:
-                <ul>
-                  <li>After-school students within key access zones.</li>
-                  <li>Comparison of engagement from nearby vs. farther schools.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SUBTAB 4: SCHOOL DEMOGRAPHIC & EQUITY LAYERS -->
-        <div id="geo-subtab-equity" class="geo-subtab-panel">
-          <div class="two-column">
-            <!-- LEFT: MAP (your original big map) -->
-            <div class="card">
-              <div class="card-title">School Demographic & Equity Map</div>
-              <div class="card-subtitle">
-                Schools and communities with equity lenses applied (Title I, CEP, FARMs, URM, and more),
-                plus program participation.
-              </div>
-
-              <iframe
-                class="map-frame"
-                src="kid_schools_programs_buffers_with_legend.html"
-                loading="lazy"
-              ></iframe>
-
-              <p class="muted" style="margin-top:10px;">
-                MAP GENERATED VIA PYTHON / FOLIUM · HOSTED AS HTML IN THIS REPOSITORY
-              </p>
-            </div>
-
-            <!-- RIGHT: EXPLANATION CARD -->
-            <div class="card">
-              <div class="card-title">How to read this map</div>
-              <div class="card-subtitle">
-                Summary of key layers and how they connect to KID Museum’s outreach strategy.
-              </div>
-              <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
-                <li><b>Dots:</b> MCPS + DC schools (with program participation where applicable).</li>
-                <li><b>Colors:</b> General Admissions, After-School, and Field Trip visits.</li>
-                <li><b>Buffers:</b> 1-mile rings around schools flagged as Title I, CEP,
-                    high FARMs, underserved, or underrepresented.</li>
-                <li><b>Rings:</b> 10-mile and 25-mile catchment areas around Ft Totten and
-                    Bethesda Metro KID Museum sites.</li>
-              </ul>
-
-              <div class="card-subtitle">
-                Possible future additions:
-                <ul style="font-size:0.9rem; color:#4b5563; line-height:1.6;">
-                  <li>Demographic charts (race/ethnicity, languages, SES) by school.</li>
-                  <li>Relationships between equity indicators and program engagement.</li>
-                  <li>Community-level layers like medically underserved areas.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- STYLES & JS ONLY FOR THESE SUBTABS -->
-     <style>
-  .geo-subtab-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 18px 0 18px 0;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 4px;
-  }
-
-  .geo-subtab-btn {
-    border: none;
-    background: transparent;
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    cursor: pointer;
-    color: #4b5563;
-    letter-spacing: 0.02em;
-    transition: background 0.15s ease, color 0.15s ease;
-  }
-
-  .geo-subtab-btn:hover {
-    background: #e5e7eb;
-  }
-
-  .geo-subtab-btn.geo-active {
-    background: #111827;
-    color: #f9fafb;
-  }
-
-  .geo-subtab-panel {
-    display: none;
-  }
-
-  .geo-subtab-panel.geo-active {
-    display: block;
-  }
-</style>
-
+      </section>
 
       <!-- TRENDS & ATTRITION TAB -->
       <section id="tab-trends" class="tab-content">
