@@ -479,62 +479,52 @@
 
         <!-- STYLES & JS ONLY FOR THESE SUBTABS -->
         <style>
-          .geo-subtab-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 18px 0 18px 0;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 4px;
-          }
+  .geo-subtab-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0 18px 0;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 6px;
+  }
 
-          .geo-subtab-btn {
-            border: none;
-            background: transparent;
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            color: #4b5563;
-            letter-spacing: 0.02em;
-            transition: background 0.15s ease, color 0.15s ease;
-          }
+  /* Default subtab button */
+  .geo-subtab-btn {
+    border: none;
+    background: transparent;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 1rem;        /* 🔥 Bigger text */
+    font-weight: 700;        /* 🔥 Bold text */
+    cursor: pointer;
+    color: #374151;          /* Gray-700 */
+    letter-spacing: 0.02em;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  }
 
-          .geo-subtab-btn:hover {
-            background: #e5e7eb;
-          }
+  /* Hover effect */
+  .geo-subtab-btn:hover {
+    background: #ffe6d2;     /* Soft orange hover */
+    color: #111827;
+  }
 
-          .geo-subtab-btn.geo-active {
-            background: #111827;
-            color: #f9fafb;
-          }
+  /* ACTIVE BUTTON → ORANGE LIKE YOUR SIDEBAR */
+  .geo-subtab-btn.geo-active {
+    background: #ff7a1a;     /* 🔥 Orange highlight */
+    color: white;
+    font-weight: 800;        /* Extra bold */
+    box-shadow: 0 2px 6px rgba(255, 122, 26, 0.35);
+  }
 
-          .geo-subtab-panel {
-            display: none;
-          }
+  .geo-subtab-panel {
+    display: none;
+  }
 
-          .geo-subtab-panel.geo-active {
-            display: block;
-          }
-        </style>
+  .geo-subtab-panel.geo-active {
+    display: block;
+  }
+</style>
 
-        <script>
-          function showGeoSubtab(id) {
-            // hide all subpanels
-            document.querySelectorAll('#tab-geo .geo-subtab-panel')
-              .forEach(function (p) { p.classList.remove('geo-active'); });
-
-            // deactivate all subtab buttons
-            document.querySelectorAll('#tab-geo .geo-subtab-btn')
-              .forEach(function (b) { b.classList.remove('geo-active'); });
-
-            // show selected subpanel
-            document.getElementById('geo-subtab-' + id).classList.add('geo-active');
-            // activate selected button
-            document.getElementById('geo-btn-' + id).classList.add('geo-active');
-          }
-        </script>
-      </section>
 
       <!-- TRENDS & ATTRITION TAB -->
       <section id="tab-trends" class="tab-content">
