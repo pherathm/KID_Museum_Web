@@ -674,185 +674,182 @@
       </section>
 
       <!-- TRENDS & ATTRITION TAB -->
-      <section id="tab-trends" class="tab-content">
-        <h1 class="section-title">Trends & Attrition</h1>
-        <p class="section-subtitle">
-          Time-series and attrition views for General Admissions, Field Trips, and After-School programs.
-          Each subtab focuses on engagement trends for one program area, including a changing video view,
-          monthly time series, and weekly patterns.
-        </p>
+     <section id="tab-trends" class="tab-content">
+  <h1 class="section-title">Trends & Attrition</h1>
+  <p class="section-subtitle">
+    Time-series and attrition views for General Admissions, Field Trips, and After-School programs.
+    Each subtab focuses on engagement trends for one program area, including a changing video view,
+    monthly time series, and weekly patterns.
+  </p>
 
-        <!-- SUBTABS FOR TRENDS & ATTRITION -->
-        <div class="trends-subtab-bar">
-          <button class="trends-subtab-btn trends-active" onclick="showTrendsSubtab('ga')" id="trends-btn-ga">
-            General Admissions – Engagement Trends
-          </button>
-          <button class="trends-subtab-btn" onclick="showTrendsSubtab('ft')" id="trends-btn-ft">
-            Field Trips – Engagement Trends
-          </button>
-          <button class="trends-subtab-btn" onclick="showTrendsSubtab('as')" id="trends-btn-as">
-            After-School – Engagement Trends
-          </button>
-        </div>
+  <!-- SUBTABS FOR TRENDS & ATTRITION -->
+  <div class="trends-subtab-bar">
+    <button class="trends-subtab-btn trends-active" onclick="showTrendsSubtab('ga')" id="trends-btn-ga">
+      General Admissions – Engagement Trends
+    </button>
+    <button class="trends-subtab-btn" onclick="showTrendsSubtab('ft')" id="trends-btn-ft">
+      Field Trips – Engagement Trends
+    </button>
+    <button class="trends-subtab-btn" onclick="showTrendsSubtab('as')" id="trends-btn-as">
+      After-School – Engagement Trends
+    </button>
+  </div>
 
-        <!-- GA TRENDS PANEL -->
-        <div id="trends-subtab-ga" class="trends-subtab-panel trends-active">
-          <div class="card">
-            <div class="card-title">General Admissions – Engagement Trends</div>
-            <div class="card-subtitle">
-              Suggested layout: (1) video or animated cumulative view, (2) monthly time-series chart,
-              and (3) weekly time-series chart for General Admissions.
-            </div>
+  <!-- GA TRENDS PANEL -->
+  <div id="trends-subtab-ga" class="trends-subtab-panel trends-active">
+    <div class="card">
+      <div class="card-title">General Admissions – Engagement Trends</div>
+      <div class="card-subtitle">
+        Video/animation, monthly time-series, and weekly patterns for General Admissions.
+      </div>
 
-            <!-- 1. Video / changing view -->
-            <iframe
-              class="graph-frame"
-              src="ga_trends_video.html"
-              loading="lazy"
-            ></iframe>
+      <!-- 1. Video / changing view -->
+      <iframe
+        class="graph-frame"
+        src="ga_weekday_animated.html"
+        loading="lazy"
+      ></iframe>
 
-            <!-- 2. Monthly time series -->
-            <iframe
-              class="graph-frame"
-              src="ga_trends_monthly.html"
-              loading="lazy"
-              style="margin-top:14px;"
-            ></iframe>
+      <!-- 2. Monthly time series -->
+      <iframe
+        class="graph-frame"
+        src="ga_monthly_trends.html"
+        loading="lazy"
+        style="margin-top:14px;"
+      ></iframe>
 
-            <!-- 3. Weekly time series -->
-            <iframe
-              class="graph-frame"
-              src="ga_trends_weekly.html"
-              loading="lazy"
-              style="margin-top:14px;"
-            ></iframe>
-          </div>
-        </div>
+      <!-- 3. Weekly time series -->
+      <iframe
+        class="graph-frame"
+        src="ga_weekly_map.html"
+        loading="lazy"
+        style="margin-top:14px;"
+      ></iframe>
+    </div>
+  </div>
 
-        <!-- FIELD TRIPS TRENDS PANEL -->
-        <div id="trends-subtab-ft" class="trends-subtab-panel">
-          <div class="card">
-            <div class="card-title">Field Trips – Engagement Trends</div>
-            <div class="card-subtitle">
-              Suggested layout: (1) video or changing view of bookings vs. attendance,
-              (2) monthly trend chart, and (3) weekly patterns for Field Trips.
-            </div>
+  <!-- FIELD TRIPS TRENDS PANEL -->
+  <div id="trends-subtab-ft" class="trends-subtab-panel">
+    <div class="card">
+      <div class="card-title">Field Trips – Engagement Trends</div>
+      <div class="card-subtitle">
+        Video/animation, monthly trends, and weekly patterns for Field Trips.
+      </div>
 
-            <!-- 1. Video / changing view -->
-            <iframe
-              class="graph-frame"
-              src="ft_trends_video.html"
-              loading="lazy"
-            ></iframe>
+      <!-- 1. Video / changing view -->
+      <iframe
+        class="graph-frame"
+        src="ft_weekday_animated.html"
+        loading="lazy"
+      ></iframe>
 
-            <!-- 2. Monthly time series -->
-            <iframe
-              class="graph-frame"
-              src="ft_trends_monthly.html"
-              loading="lazy"
-              style="margin-top:14px;"
-            ></iframe>
+      <!-- 2. Monthly time series -->
+      <iframe
+        class="graph-frame"
+        src="ft_monthly_trends.html"
+        loading="lazy"
+        style="margin-top:14px;"
+      ></iframe>
 
-            <!-- 3. Weekly time series -->
-            <iframe
-              class="graph-frame"
-              src="ft_trends_weekly.html"
-              loading="lazy"
-              style="margin-top:14px;"
-            ></iframe>
-          </div>
-        </div>
+      <!-- 3. Weekly time series -->
+      <iframe
+        class="graph-frame"
+        src="ft_weekly_map.html"
+        loading="lazy"
+        style="margin-top:14px;"
+      ></iframe>
+    </div>
+  </div>
 
-        <!-- AFTER-SCHOOL TRENDS PANEL -->
-        <div id="trends-subtab-as" class="trends-subtab-panel">
-          <div class="card">
-            <div class="card-title">After-School – Engagement Trends</div>
-            <div class="card-subtitle">
-              Suggested layout: (1) video or changing participation view,
-              (2) monthly participation trends, and (3) weekly activity patterns
-              for After-School programs.
-            </div>
+  <!-- AFTER-SCHOOL TRENDS PANEL -->
+  <div id="trends-subtab-as" class="trends-subtab-panel">
+    <div class="card">
+      <div class="card-title">After-School – Engagement Trends</div>
+      <div class="card-subtitle">
+        Video/animation, monthly participation, and weekly cumulative map for After-School programs.
+      </div>
 
-            <!-- 1. Video / changing view -->
-            <iframe
-              class="graph-frame"
-              src="as_trends_video.html"
-              loading="lazy"
-            ></iframe>
+      <!-- 1. Video / changing view -->
+      <iframe
+        class="graph-frame"
+        src="as_weekday_animated.html"
+        loading="lazy"
+      ></iframe>
 
-            <!-- 2. Monthly time series -->
-            <iframe
-              class="graph-frame"
-              src="as_trends_monthly.html"
-              loading="lazy"
-              style="margin-top:14px;"
-            ></iframe>
+      <!-- 2. Monthly time series -->
+      <iframe
+        class="graph-frame"
+        src="as_monthly_trends.html"
+        loading="lazy"
+        style="margin-top:14px;"
+      ></iframe>
 
-            <!-- 3. Weekly time series -->
-            <iframe
-              class="graph-frame"
-              src="as_trends_weekly.html"
-              loading="lazy"
-              style="margin-top:14px;"
-            ></iframe>
-          </div>
-        </div>
+      <!-- 3. Weekly cumulative map -->
+      <iframe
+        class="graph-frame"
+        src="as_weekly_cumulative_map_2023_2025 (1).html"
+        loading="lazy"
+        style="margin-top:14px;"
+      ></iframe>
+    </div>
+  </div>
 
-        <!-- STYLES & JS FOR TRENDS SUBTABS -->
-        <style>
-          .trends-subtab-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 18px 0 18px 0;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 4px;
-          }
+  <!-- STYLES & JS FOR TRENDS SUBTABS -->
+  <style>
+    .trends-subtab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 18px 0;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 4px;
+    }
 
-          .trends-subtab-btn {
-            border: none;
-            background: transparent;
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            color: #4b5563;
-            letter-spacing: 0.02em;
-            transition: background 0.15s ease, color 0.15s ease;
-          }
+    .trends-subtab-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #4b5563;
+      letter-spacing: 0.02em;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
 
-          .trends-subtab-btn:hover {
-            background: #e5e7eb;
-          }
+    .trends-subtab-btn:hover {
+      background: #e5e7eb;
+    }
 
-          .trends-subtab-btn.trends-active {
-            background: #111827;
-            color: #f9fafb;
-          }
+    .trends-subtab-btn.trends-active {
+      background: #111827;
+      color: #f9fafb;
+    }
 
-          .trends-subtab-panel {
-            display: none;
-          }
+    .trends-subtab-panel {
+      display: none;
+    }
 
-          .trends-subtab-panel.trends-active {
-            display: block;
-          }
-        </style>
+    .trends-subtab-panel.trends-active {
+      display: block;
+    }
+  </style>
 
-        <script>
-          function showTrendsSubtab(id) {
-            document.querySelectorAll('#tab-trends .trends-subtab-panel')
-              .forEach(p => p.classList.remove('trends-active'));
+  <script>
+    function showTrendsSubtab(id) {
+      document.querySelectorAll('#tab-trends .trends-subtab-panel')
+        .forEach(p => p.classList.remove('trends-active'));
 
-            document.querySelectorAll('#tab-trends .trends-subtab-btn')
-              .forEach(b => b.classList.remove('trends-active'));
+      document.querySelectorAll('#tab-trends .trends-subtab-btn')
+        .forEach(b => b.classList.remove('trends-active'));
 
-            document.getElementById('trends-subtab-' + id).classList.add('trends-active');
-            document.getElementById('trends-btn-' + id).classList.add('trends-active');
-          }
-        </script>
-      </section>
+      document.getElementById('trends-subtab-' + id).classList.add('trends-active');
+      document.getElementById('trends-btn-' + id).classList.add('trends-active');
+    }
+  </script>
+</section>
+
 
       <!-- FORECASTING & CANDIDATES TAB -->
       <section id="tab-forecast" class="tab-content">
