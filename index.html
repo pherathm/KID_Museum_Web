@@ -861,26 +861,130 @@
   </script>
 </section>
 
-      <!-- FORECASTING & CANDIDATES TAB -->
-      <section id="tab-forecast" class="tab-content">
-        <h1 class="section-title">Forecasting & Candidates</h1>
-        <p class="section-subtitle">
-          Space reserved for forecasting demand and highlighting candidate schools that could
-          benefit from KID Museum’s approach.
-        </p>
+    <!-- FORECASTING & CANDIDATES TAB -->
+<section id="tab-forecast" class="tab-content">
+  <h1 class="section-title">Forecasting & Candidates</h1>
+  <p class="section-subtitle">
+    This section highlights forecasted opportunity areas and specific schools that could benefit
+    from KID Museum’s approach, especially public and charter schools with high need and limited
+    prior engagement.
+  </p>
 
-        <div class="card">
-          <div class="card-title">Candidate schools & capacity</div>
-          <div class="card-subtitle">
-            Future space for candidate school lists, maps, or forecasting visuals.
-          </div>
-          <p style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
-            You can export any Python, Power BI, or Tableau visuals as stand-alone HTML
-            (e.g., <code>candidate_schools.html</code>) and embed them here using
-            <code>&lt;iframe&gt;</code>, just like the main map on the Geographic Engagement tab.
-          </p>
-        </div>
-      </section>
+  <!-- SUBTABS FOR FORECASTING -->
+  <div class="forecast-subtab-bar">
+    <button class="forecast-subtab-btn forecast-active" onclick="showForecastSubtab('map')" id="forecast-btn-map">
+      Forecast Map – Priority School Clusters
+    </button>
+    <button class="forecast-subtab-btn" onclick="showForecastSubtab('candidates')" id="forecast-btn-candidates">
+      Candidate Schools – Forecasted Priority List
+    </button>
+  </div>
+
+  <!-- SUBTAB 1: FORECAST MAP -->
+  <div id="forecast-subtab-map" class="forecast-subtab-panel forecast-active">
+    <div class="card">
+      <div class="card-title">Forecast Map – Priority School Clusters</div>
+      <div class="card-subtitle">
+        Map view of schools, equity indicators, and access rings used to identify clusters of schools
+        that may benefit most from KID Museum outreach.
+      </div>
+
+      <iframe
+        class="map-frame"
+        src="kid_schools_programs_buffers_with_legend_and_forecast (4).html"
+        loading="lazy"
+      ></iframe>
+
+      <p class="muted" style="margin-top:10px;">
+        FORECAST MAP GENERATED VIA PYTHON / FOLIUM · OVERLAYS PROGRAM ENGAGEMENT WITH EQUITY LAYERS
+      </p>
+    </div>
+  </div>
+
+  <!-- SUBTAB 2: CANDIDATE SCHOOLS TABLE (PLACEHOLDER FOR NOW) -->
+  <div id="forecast-subtab-candidates" class="forecast-subtab-panel">
+    <div class="card">
+      <div class="card-title">Candidate Schools – Forecasted Priority List</div>
+      <div class="card-subtitle">
+        This subtab will display the table of schools identified as strong candidates for future
+        KID Museum outreach based on need, equity indicators, and current engagement levels.
+      </div>
+
+      <!-- You can replace this later with an embedded HTML table or image -->
+      <p style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
+        The candidate schools list is built from:
+      </p>
+      <ul style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
+        <li>Equity indicators (Title I, CEP, high FARMs).</li>
+        <li>Underserved and underrepresented flags.</li>
+        <li>Past KID Museum engagement (General Admissions, Field Trips, After-School).</li>
+        <li>Distance and transportation access to Ft Totten and Bethesda Metro.</li>
+      </ul>
+
+      <p style="font-size:0.98rem; color:#4b5563; line-height:1.7; margin-top:10px;">
+        Once your table is finalized, you can export it as HTML (for example,
+        <code>candidate_schools_table.html</code>) and embed it here with an
+        <code>&lt;iframe&gt;</code>, similar to the map above.
+      </p>
+    </div>
+  </div>
+
+  <!-- STYLES & JS FOR FORECAST SUBTABS -->
+  <style>
+    .forecast-subtab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 18px 0;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 4px;
+    }
+
+    .forecast-subtab-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #4b5563;
+      letter-spacing: 0.02em;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .forecast-subtab-btn:hover {
+      background: #e5e7eb;
+    }
+
+    .forecast-subtab-btn.forecast-active {
+      background: #111827;
+      color: #f9fafb;
+    }
+
+    .forecast-subtab-panel {
+      display: none;
+    }
+
+    .forecast-subtab-panel.forecast-active {
+      display: block;
+    }
+  </style>
+
+  <script>
+    function showForecastSubtab(id) {
+      document.querySelectorAll('#tab-forecast .forecast-subtab-panel')
+        .forEach(function (p) { p.classList.remove('forecast-active'); });
+
+      document.querySelectorAll('#tab-forecast .forecast-subtab-btn')
+        .forEach(function (b) { b.classList.remove('forecast-active'); });
+
+      document.getElementById('forecast-subtab-' + id).classList.add('forecast-active');
+      document.getElementById('forecast-btn-' + id).classList.add('forecast-active');
+    }
+  </script>
+</section>
+
 
       <!-- ENGAGEMENT LADDER TAB -->
       <section id="tab-ladder" class="tab-content">
