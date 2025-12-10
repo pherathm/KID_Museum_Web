@@ -674,12 +674,14 @@
       </section>
 
       <!-- TRENDS & ATTRITION TAB -->
-     <section id="tab-trends" class="tab-content">
+     
+
+<section id="tab-trends" class="tab-content">
   <h1 class="section-title">Trends & Attrition</h1>
   <p class="section-subtitle">
     Time-series and attrition views for General Admissions, Field Trips, and After-School programs.
-    Each subtab focuses on engagement trends for one program area, including a changing video view,
-    monthly time series, and weekly patterns.
+    Each subtab focuses on engagement trends for one program area, including map views,
+    monthly time series, and weekly/weekday animations.
   </p>
 
   <!-- SUBTABS FOR TRENDS & ATTRITION -->
@@ -700,29 +702,32 @@
     <div class="card">
       <div class="card-title">General Admissions – Engagement Trends</div>
       <div class="card-subtitle">
-        Video/animation, monthly time-series, and weekly patterns for General Admissions.
+        Map view, monthly time-series, and weekday/weekly animation for General Admissions.
       </div>
 
-      <!-- 1. Video / changing view -->
-      <iframe
-        class="graph-frame"
-        src="ga_weekday_animated.html"
-        loading="lazy"
-      ></iframe>
-
-      <!-- 2. Monthly time series -->
-      <iframe
-        class="graph-frame"
-        src="ga_monthly_trends.html"
-        loading="lazy"
-        style="margin-top:14px;"
-      ></iframe>
-
-      <!-- 3. Weekly time series -->
+      <!-- 1. MAP -->
       <iframe
         class="graph-frame"
         src="ga_weekly_map.html"
         loading="lazy"
+        allow="autoplay"
+      ></iframe>
+
+      <!-- 2. MONTHLY TIME SERIES -->
+      <iframe
+        class="graph-frame"
+        src="ga_monthly_trends.html"
+        loading="lazy"
+        allow="autoplay"
+        style="margin-top:14px;"
+      ></iframe>
+
+      <!-- 3. WEEKLY / WEEKDAY ANIMATED -->
+      <iframe
+        class="graph-frame"
+        src="ga_weekday_animated.html"
+        loading="lazy"
+        allow="autoplay"
         style="margin-top:14px;"
       ></iframe>
     </div>
@@ -733,29 +738,32 @@
     <div class="card">
       <div class="card-title">Field Trips – Engagement Trends</div>
       <div class="card-subtitle">
-        Video/animation, monthly trends, and weekly patterns for Field Trips.
+        Map view, monthly trends, and weekday/weekly animation for Field Trips.
       </div>
 
-      <!-- 1. Video / changing view -->
-      <iframe
-        class="graph-frame"
-        src="ft_weekday_animated.html"
-        loading="lazy"
-      ></iframe>
-
-      <!-- 2. Monthly time series -->
-      <iframe
-        class="graph-frame"
-        src="ft_monthly_trends.html"
-        loading="lazy"
-        style="margin-top:14px;"
-      ></iframe>
-
-      <!-- 3. Weekly time series -->
+      <!-- 1. MAP -->
       <iframe
         class="graph-frame"
         src="ft_weekly_map.html"
         loading="lazy"
+        allow="autoplay"
+      ></iframe>
+
+      <!-- 2. MONTHLY TIME SERIES -->
+      <iframe
+        class="graph-frame"
+        src="ft_monthly_trends.html"
+        loading="lazy"
+        allow="autoplay"
+        style="margin-top:14px;"
+      ></iframe>
+
+      <!-- 3. WEEKLY / WEEKDAY ANIMATED -->
+      <iframe
+        class="graph-frame"
+        src="ft_weekday_animated.html"
+        loading="lazy"
+        allow="autoplay"
         style="margin-top:14px;"
       ></iframe>
     </div>
@@ -766,29 +774,32 @@
     <div class="card">
       <div class="card-title">After-School – Engagement Trends</div>
       <div class="card-subtitle">
-        Video/animation, monthly participation, and weekly cumulative map for After-School programs.
+        Map view, monthly participation, and weekday/weekly animation for After-School programs.
       </div>
 
-      <!-- 1. Video / changing view -->
-      <iframe
-        class="graph-frame"
-        src="as_weekday_animated.html"
-        loading="lazy"
-      ></iframe>
-
-      <!-- 2. Monthly time series -->
-      <iframe
-        class="graph-frame"
-        src="as_monthly_trends.html"
-        loading="lazy"
-        style="margin-top:14px;"
-      ></iframe>
-
-      <!-- 3. Weekly cumulative map -->
+      <!-- 1. MAP -->
       <iframe
         class="graph-frame"
         src="as_weekly_cumulative_map_2023_2025 (1).html"
         loading="lazy"
+        allow="autoplay"
+      ></iframe>
+
+      <!-- 2. MONTHLY TIME SERIES -->
+      <iframe
+        class="graph-frame"
+        src="as_monthly_trends.html"
+        loading="lazy"
+        allow="autoplay"
+        style="margin-top:14px;"
+      ></iframe>
+
+      <!-- 3. WEEKLY / WEEKDAY ANIMATED -->
+      <iframe
+        class="graph-frame"
+        src="as_weekday_animated.html"
+        loading="lazy"
+        allow="autoplay"
         style="margin-top:14px;"
       ></iframe>
     </div>
@@ -849,7 +860,6 @@
     }
   </script>
 </section>
-
 
       <!-- FORECASTING & CANDIDATES TAB -->
       <section id="tab-forecast" class="tab-content">
