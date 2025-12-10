@@ -987,25 +987,187 @@
 
 
       <!-- ENGAGEMENT LADDER TAB -->
-      <section id="tab-ladder" class="tab-content">
-        <h1 class="section-title">Engagement Ladder</h1>
-        <p class="section-subtitle">
-          Placeholder for a ladder-of-engagement or Sankey-style visualization showing
-          how schools and families move through KID Museum’s ecosystem (e.g., field trips →
-          after-school programs → camps → teen programs).
-        </p>
 
-        <div class="card">
-          <div class="card-title">Planned visuals</div>
-          <div class="card-subtitle">
-            Ideas for future data storytelling in this section.
-          </div>
-          <ul style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
-            <li>Sankey diagram of program pathways.</li>
-            <li>Stage-based counts of schools or families across the engagement ladder.</li>
-          </ul>
-        </div>
-      </section>
+
+<!-- ENGAGEMENT LADDER TAB -->
+<section id="tab-ladder" class="tab-content">
+  <h1 class="section-title">Engagement Ladder</h1>
+  <p class="section-subtitle">
+    Sankey-style diagrams showing how communities, schools, and families move through KID Museum’s
+    ecosystem – from community ZIP codes into program types, and from field trips into deeper
+    engagement such as general admission and membership-style visits.
+  </p>
+
+  <!-- SUBTABS FOR ENGAGEMENT LADDER -->
+  <div class="ladder-subtab-bar">
+    <button class="ladder-subtab-btn ladder-active" onclick="showLadderSubtab('s1')" id="ladder-btn-s1">
+      Community ZIP → GA / FT / AS
+    </button>
+    <button class="ladder-subtab-btn" onclick="showLadderSubtab('s2')" id="ladder-btn-s2">
+      District ZIP → FT / AS
+    </button>
+    <button class="ladder-subtab-btn" onclick="showLadderSubtab('s3')" id="ladder-btn-s3">
+      School ZIP → FT / AS
+    </button>
+    <button class="ladder-subtab-btn" onclick="showLadderSubtab('s4')" id="ladder-btn-s4">
+      Family Email → GA / AS
+    </button>
+    <button class="ladder-subtab-btn" onclick="showLadderSubtab('s5')" id="ladder-btn-s5">
+      FT Schools → Membership / Visits
+    </button>
+  </div>
+
+  <!-- SUBTAB 1: COMMUNITY ZIP → PROGRAM TYPE -->
+  <div id="ladder-subtab-s1" class="ladder-subtab-panel ladder-active">
+    <div class="card">
+      <div class="card-title">Community ZIP → General Admissions / Field Trips / After-School</div>
+      <div class="card-subtitle">
+        This Sankey diagram aggregates all visits by <b>community ZIP code</b> and shows how those
+        communities connect into three main program types: General Admissions (GA), Field Trips (FT),
+        and After-School (AS). Each flow represents the total number of visits from that ZIP into
+        each program type.
+      </div>
+
+      <iframe
+        class="graph-frame"
+        src="sankey_1_community_zip_ga_ft_as.html"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- SUBTAB 2: DISTRICT ZIP → FT / AS -->
+  <div id="ladder-subtab-s2" class="ladder-subtab-panel">
+    <div class="card">
+      <div class="card-title">District ZIP → Field Trips / After-School</div>
+      <div class="card-subtitle">
+        This Sankey uses <b>district-level ZIP codes</b> to show how different school districts are
+        engaging with KID Museum through Field Trips and After-School programs. Flows are weighted
+        by the count of visits from each district ZIP into FT and AS.
+      </div>
+
+      <iframe
+        class="graph-frame"
+        src="sankey_2_district_zip_ft_as.html"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- SUBTAB 3: SCHOOL ZIP → FT / AS -->
+  <div id="ladder-subtab-s3" class="ladder-subtab-panel">
+    <div class="card">
+      <div class="card-title">School ZIP → Field Trips / After-School</div>
+      <div class="card-subtitle">
+        This view zooms in to the <b>school ZIP code level</b>. Each starting node is a school ZIP,
+        and links show how schools in that ZIP participate in Field Trips and After-School programs.
+        It helps identify ZIP codes where schools are only using one program type and may be ready
+        to move further along the ladder.
+      </div>
+
+      <iframe
+        class="graph-frame"
+        src="sankey_3_school_zip_ft_as.html"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- SUBTAB 4: FAMILY EMAIL → GA / AS -->
+  <div id="ladder-subtab-s4" class="ladder-subtab-panel">
+    <div class="card">
+      <div class="card-title">Family Email → General Admissions / After-School</div>
+      <div class="card-subtitle">
+        Here, each starting node is a unique <b>family email</b>. The flows show how families move
+        from initial contact into General Admissions and then into After-School programs. This
+        Sankey is built by grouping visits by email and counting how many GA and AS touchpoints each
+        family has, revealing a family-level ladder of engagement.
+      </div>
+
+      <iframe
+        class="graph-frame"
+        src="sankey_4_family_email_ga_as.html"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- SUBTAB 5: FIELD TRIP SCHOOLS → MEMBERSHIP / REPEAT VISITS -->
+  <div id="ladder-subtab-s5" class="ladder-subtab-panel">
+    <div class="card">
+      <div class="card-title">Field Trip Schools → Membership / Repeat Visits</div>
+      <div class="card-subtitle">
+        This Sankey looks at the <b>pathway from Field Trip participation into deeper engagement</b>.
+        Schools that attend Field Trips are linked forward into membership-style or repeat visit
+        categories, using counts of FT visits and follow-up visits. It helps illustrate how Field
+        Trips can serve as an entry point into longer-term relationships with schools.
+      </div>
+
+      <iframe
+        class="graph-frame"
+        src="sankey_5_ft_school_membership_visits.html"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- STYLES & JS FOR LADDER SUBTABS -->
+  <style>
+    .ladder-subtab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 18px 0;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 4px;
+    }
+
+    .ladder-subtab-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #4b5563;
+      letter-spacing: 0.02em;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .ladder-subtab-btn:hover {
+      background: #e5e7eb;
+    }
+
+    .ladder-subtab-btn.ladder-active {
+      background: #111827;
+      color: #f9fafb;
+    }
+
+    .ladder-subtab-panel {
+      display: none;
+    }
+
+    .ladder-subtab-panel.ladder-active {
+      display: block;
+    }
+  </style>
+
+  <script>
+    function showLadderSubtab(id) {
+      document.querySelectorAll('#tab-ladder .ladder-subtab-panel')
+        .forEach(function (p) { p.classList.remove('ladder-active'); });
+
+      document.querySelectorAll('#tab-ladder .ladder-subtab-btn')
+        .forEach(function (b) { b.classList.remove('ladder-active'); });
+
+      document.getElementById('ladder-subtab-' + id).classList.add('ladder-active');
+      document.getElementById('ladder-btn-' + id).classList.add('ladder-active');
+    }
+  </script>
+</section>
+
+      
 
       <!-- EQUITY & METHODS TAB -->
       <section id="tab-equity" class="tab-content">
