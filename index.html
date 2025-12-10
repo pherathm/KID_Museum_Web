@@ -901,33 +901,41 @@
     </div>
   </div>
 
-  <!-- SUBTAB 2: CANDIDATE SCHOOLS TABLE (PLACEHOLDER FOR NOW) -->
-  <div id="forecast-subtab-candidates" class="forecast-subtab-panel">
-    <div class="card">
-      <div class="card-title">Candidate Schools – Forecasted Priority List</div>
-      <div class="card-subtitle">
-        This subtab will display the table of schools identified as strong candidates for future
-        KID Museum outreach based on need, equity indicators, and current engagement levels.
-      </div>
+  <!-- SUBTAB 2: CANDIDATE SCHOOLS TABLE -->
+<div id="forecast-subtab-candidates" class="forecast-subtab-panel">
+  <div class="card">
+    <div class="card-title">Candidate Schools – Forecasted Priority List</div>
 
-      <!-- You can replace this later with an embedded HTML table or image -->
-      <p style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
-        The candidate schools list is built from:
-      </p>
-      <ul style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
-        <li>Equity indicators (Title I, CEP, high FARMs).</li>
-        <li>Underserved and underrepresented flags.</li>
-        <li>Past KID Museum engagement (General Admissions, Field Trips, After-School).</li>
-        <li>Distance and transportation access to Ft Totten and Bethesda Metro.</li>
-      </ul>
-
-      <p style="font-size:0.98rem; color:#4b5563; line-height:1.7; margin-top:10px;">
-        Once your table is finalized, you can export it as HTML (for example,
-        <code>candidate_schools_table.html</code>) and embed it here with an
-        <code>&lt;iframe&gt;</code>, similar to the map above.
-      </p>
+    <div class="card-subtitle">
+      This priority list identifies schools that would benefit most from future KID Museum outreach.
+      Each school receives a Final Priority Score (FPS) based on equity needs, previous engagement
+      levels, and transportation access.
     </div>
+
+    <ul style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
+      <li><b>School Need Score (SNI)</b> – up to 12 points from Title I, CEP, High FARMs, Underserved, and Underrepresented flags.</li>
+      <li><b>Engagement Score (ES)</b> – up to 3 points based on how few prior visits the school has (0 visits = highest score).</li>
+      <li><b>Distance Score (DS)</b> – up to 3 points based on proximity to Ft Totten or Bethesda (closer schools score higher).</li>
+    </ul>
+
+    <p style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
+      <b>Final Priority Score (FPS) = SNI + ES + DS</b>.  
+      Schools are ranked from highest to lowest FPS, meaning higher scores indicate higher potential
+      for equitable impact and outreach effectiveness.
+    </p>
+
+    <!-- Embedded Priority Ranking Table -->
+    <iframe
+      class="map-frame"
+      src="KID_full_priority_ranking.html"
+      loading="lazy"
+    ></iframe>
+
+    <p class="muted" style="margin-top:10px;">
+      TABLE GENERATED VIA PYTHON · SORTED BY FINAL PRIORITY SCORE (FPS)
+    </p>
   </div>
+</div>
 
   <!-- STYLES & JS FOR FORECAST SUBTABS -->
   <style>
