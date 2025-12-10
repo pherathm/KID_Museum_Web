@@ -321,6 +321,636 @@
         <div class="geo-subtab-bar">
           <button class="geo-subtab-btn geo-active" onclick="showGeoSubtab('ga')" id="geo-btn-ga">
             General Admissions – Reach & Access
+          </button>
+          <button class="geo-subtab-btn" onclick="showGeoSubtab('ft')" id="geo-btn-ft">
+            Field Trips – Engagement & Access
+          </button>
+          <button class="geo-subtab-btn" onclick="showGeoSubtab('af')" id="geo-btn-af">
+            After-School – Engagement & Access
+          </button>
+          <button class="geo-subtab-btn" onclick="showGeoSubtab('heat')" id="geo-btn-heat">
+            Heat Map View
+          </button>
+        </div>
+
+        <!-- SUBTAB 1: GENERAL ADMISSIONS -->
+        <div id="geo-subtab-ga" class="geo-subtab-panel geo-active">
+          <div class="two-column">
+            <!-- LEFT: MAP -->
+            <div class="card">
+              <div class="card-title">General Admissions Map</div>
+              <div class="card-subtitle">
+                Interactive map of General Admissions touchpoints. Layers can include equity buffers and
+                rings around KID Museum sites.
+              </div>
+
+              <iframe
+                class="map-frame"
+                src="ga_map.html"
+                loading="lazy"
+              ></iframe>
+            </div>
+
+            <!-- RIGHT: EASY TRANSPORTATION GRAPHS -->
+            <div class="card">
+              <div class="card-title">Easy Transportation Radius – General Admissions</div>
+              <div class="card-subtitle">
+                Bar charts summarizing General Admissions visitors by distance band from Ft Totten
+                and Bethesda Metro (3BMC).
+              </div>
+
+              <iframe
+                class="graph-frame"
+                src="general_admissions_radius_chart.html"
+                loading="lazy"
+              ></iframe>
+
+              <div class="card-subtitle" style="margin-top:10px;">
+                Possible views:
+                <ul>
+                  <li>0–5, 5–10, 10–15 mile bands for Ft Totten and BMC.</li>
+                  <li>Comparison of GA visitors by school cluster or district.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUBTAB 2: FIELD TRIPS -->
+        <div id="geo-subtab-ft" class="geo-subtab-panel">
+          <div class="two-column">
+            <!-- LEFT: MAP -->
+            <div class="card">
+              <div class="card-title">Field Trips Map</div>
+              <div class="card-subtitle">
+                Map of schools participating in KID Museum field trips, with optional layers for equity and access.
+              </div>
+
+              <iframe
+                class="map-frame"
+                src="ft_map.html"
+                loading="lazy"
+              ></iframe>
+            </div>
+
+            <!-- RIGHT: EASY TRANSPORTATION GRAPHS -->
+            <div class="card">
+              <div class="card-title">Easy Transportation Radius – Field Trips</div>
+              <div class="card-subtitle">
+                Charts showing field trip engagement by mileage band or travel time from KID Museum sites.
+              </div>
+
+              <iframe
+                class="graph-frame"
+                src="field_trips_radius_chart.html"
+                loading="lazy"
+              ></iframe>
+
+              <div class="card-subtitle" style="margin-top:10px;">
+                Possible views:
+                <ul>
+                  <li>Field trips by distance band (e.g., &lt;10 miles, 10–25 miles).</li>
+                  <li>Difference between bookings and actual attendance by access zone.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUBTAB 3: AFTER-SCHOOL -->
+        <div id="geo-subtab-af" class="geo-subtab-panel">
+          <div class="two-column">
+            <!-- LEFT: MAP -->
+            <div class="card">
+              <div class="card-title">After-School & Transportation Map</div>
+              <div class="card-subtitle">
+                After-school program locations and access buffers around KID Museum sites.
+              </div>
+
+              <iframe
+                class="map-frame"
+                src="af_map.html"
+                loading="lazy"
+              ></iframe>
+            </div>
+
+            <!-- RIGHT: EASY TRANSPORTATION GRAPHS -->
+            <div class="card">
+              <div class="card-title">Easy Transportation Radius – After-School</div>
+              <div class="card-subtitle">
+                Bar charts showing after-school engagement by distance or travel-time bands.
+              </div>
+
+              <iframe
+                class="graph-frame"
+                src="after-school_radius_chart.html"
+                loading="lazy"
+              ></iframe>
+
+              <div class="card-subtitle" style="margin-top:10px;">
+                Possible views:
+                <ul>
+                  <li>After-school students within key access zones.</li>
+                  <li>Comparison of engagement from nearby vs. farther schools.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUBTAB 4: HEAT MAP VIEW -->
+        <div id="geo-subtab-heat" class="geo-subtab-panel">
+          <div class="card">
+            <div class="card-title">Heat Map View – All Programs</div>
+            <div class="card-subtitle">
+              Heat map showing combined program intensity across schools. This view helps identify clusters
+              of high engagement and potential gaps in outreach.
+            </div>
+
+            <iframe
+              class="map-frame"
+              src="all_programs_heat.html"
+              loading="lazy"
+            ></iframe>
+
+            <p class="muted" style="margin-top:10px;">
+              HEAT MAP GENERATED VIA PYTHON / FOLIUM · HOSTED AS HTML IN THIS REPOSITORY
+            </p>
+          </div>
+        </div>
+
+        <!-- STYLES & JS ONLY FOR GEO SUBTABS -->
+        <style>
+          .geo-subtab-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 18px 0 18px 0;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 4px;
+          }
+
+          .geo-subtab-btn {
+            border: none;
+            background: transparent;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #4b5563;
+            letter-spacing: 0.02em;
+            transition: background 0.15s ease, color 0.15s ease;
+          }
+
+          .geo-subtab-btn:hover {
+            background: #e5e7eb;
+          }
+
+          .geo-subtab-btn.geo-active {
+            background: #111827;
+            color: #f9fafb;
+          }
+
+          .geo-subtab-panel {
+            display: none;
+          }
+
+          .geo-subtab-panel.geo-active {
+            display: block;
+          }
+
+          .two-column {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            gap: 16px;
+          }
+
+          @media (max-width: 900px) {
+            .two-column {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
+
+        <script>
+          function showGeoSubtab(id) {
+            document.querySelectorAll('#tab-geo .geo-subtab-panel')
+              .forEach(function (p) { p.classList.remove('geo-active'); });
+
+            document.querySelectorAll('#tab-geo .geo-subtab-btn')
+              .forEach(function (b) { b.classList.remove('geo-active'); });
+
+            document.getElementById('geo-subtab-' + id).classList.add('geo-active');
+            document.getElementById('geo-btn-' + id).classList.add('geo-active');
+          }
+        </script>
+      </section>
+
+      <!-- SCHOOL DEMOGRAPHY & EQUITY LAYERS TAB -->
+      <section id="tab-school" class="tab-content">
+        <h1 class="section-title">School Demography & Equity Layers</h1>
+        <p class="section-subtitle">
+          This tab focuses on school-level demographics and the equity lenses used in this project,
+          including Title I, CEP, FARMs, and composite measures such as underserved and underrepresented.
+          It helps connect demographic context to KID Museum’s engagement patterns.
+        </p>
+
+        <!-- SUBTABS FOR THIS TAB -->
+        <div class="school-subtab-bar">
+          <button class="school-subtab-btn school-active" onclick="showSchoolSubtab('demo')" id="school-btn-demo">
+            School Demographic
+          </button>
+          <button class="school-subtab-btn" onclick="showSchoolSubtab('equity')" id="school-btn-equity">
+            Equity Layers
+          </button>
+        </div>
+
+        <!-- SUBTAB 1: SCHOOL DEMOGRAPHIC -->
+        <div id="school-subtab-demo" class="school-subtab-panel school-active">
+          <div class="card">
+            <div class="card-title">School Demographic View</div>
+            <div class="card-subtitle">
+              Combined view of schools, program participation, and equity-related flags, used as a base
+              layer for demographic analysis.
+            </div>
+
+            <iframe
+              class="map-frame"
+              src="kid_schools_programs_buffers_with_legend.html"
+              loading="lazy"
+            ></iframe>
+
+            <p class="muted" style="margin-top:10px;">
+              MAP GENERATED VIA PYTHON / FOLIUM · HOSTED AS HTML IN THIS REPOSITORY
+            </p>
+          </div>
+        </div>
+
+        <!-- SUBTAB 2: EQUITY LAYERS (NO MAP YET) -->
+        <div id="school-subtab-equity" class="school-subtab-panel">
+          <div class="card">
+            <div class="card-title">Equity Layers</div>
+            <div class="card-subtitle">
+              Definitions and interpretation of the equity-related indicators used on the maps and in this dashboard.
+            </div>
+
+            <ul style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
+              <li><b>Title I:</b> Schools designated as Title I in the relevant school year.</li>
+              <li><b>CEP:</b> Schools participating in the Community Eligibility Provision.</li>
+              <li><b>High FARMs:</b> Schools above a chosen FARMs threshold (for example, &gt; 40%).</li>
+              <li><b>Underserved / Underrepresented:</b> Composite flags combining FARMs and race/ethnicity indicators.</li>
+            </ul>
+
+            <div class="pill-row">
+              <span class="pill">Title I</span>
+              <span class="pill">CEP</span>
+              <span class="pill">High FARMs</span>
+              <span class="pill">Underserved</span>
+              <span class="pill">Underrepresented</span>
+            </div>
+
+            <div class="card-subtitle" style="margin-top:12px;">
+              This tab is intended to connect the visual layers on the maps with clear definitions, so that
+              staff and partners can interpret the equity views confidently.
+            </div>
+          </div>
+        </div>
+
+        <!-- STYLES & JS FOR SCHOOL SUBTABS -->
+        <style>
+          .school-subtab-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 18px 0 18px 0;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 4px;
+          }
+
+          .school-subtab-btn {
+            border: none;
+            background: transparent;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #4b5563;
+            letter-spacing: 0.02em;
+            transition: background 0.15s ease, color 0.15s ease;
+          }
+
+          .school-subtab-btn:hover {
+            background: #e5e7eb;
+          }
+
+          .school-subtab-btn.school-active {
+            background: #111827;
+            color: #f9fafb;
+          }
+
+          .school-subtab-panel {
+            display: none;
+          }
+
+          .school-subtab-panel.school-active {
+            display: block;
+          }
+        </style>
+
+        <script>
+          function showSchoolSubtab(id) {
+            document.querySelectorAll('#tab-school .school-subtab-panel')
+              .forEach(function (p) { p.classList.remove('school-active'); });
+
+            document.querySelectorAll('#tab-school .school-subtab-btn')
+              .forEach(function (b) { b.classList.remove('school-active'); });
+
+            document.getElementById('school-subtab-' + id).classList.add('school-active');
+            document.getElementById('school-btn-' + id).classList.add('school-active');
+          }
+        </script>
+      </section>
+
+      <!-- TRENDS & ATTRITION TAB -->
+      <section id="tab-trends" class="tab-content">
+        <h1 class="section-title">Trends & Attrition</h1>
+        <p class="section-subtitle">
+          Time-series and attrition views for General Admissions, Field Trips, and After-School programs.
+          Each subtab focuses on engagement trends for one program area, including a changing video view,
+          monthly time series, and weekly patterns.
+        </p>
+
+        <!-- SUBTABS FOR TRENDS & ATTRITION -->
+        <div class="trends-subtab-bar">
+          <button class="trends-subtab-btn trends-active" onclick="showTrendsSubtab('ga')" id="trends-btn-ga">
+            General Admissions – Engagement Trends
+          </button>
+          <button class="trends-subtab-btn" onclick="showTrendsSubtab('ft')" id="trends-btn-ft">
+            Field Trips – Engagement Trends
+          </button>
+          <button class="trends-subtab-btn" onclick="showTrendsSubtab('as')" id="trends-btn-as">
+            After-School – Engagement Trends
+          </button>
+        </div>
+
+        <!-- GA TRENDS PANEL -->
+        <div id="trends-subtab-ga" class="trends-subtab-panel trends-active">
+          <div class="card">
+            <div class="card-title">General Admissions – Engagement Trends</div>
+            <div class="card-subtitle">
+              Suggested layout: (1) video or animated cumulative view, (2) monthly time-series chart,
+              and (3) weekly time-series chart for General Admissions.
+            </div>
+
+            <!-- 1. Video / changing view -->
+            <iframe
+              class="graph-frame"
+              src="ga_trends_video.html"
+              loading="lazy"
+            ></iframe>
+
+            <!-- 2. Monthly time series -->
+            <iframe
+              class="graph-frame"
+              src="ga_trends_monthly.html"
+              loading="lazy"
+              style="margin-top:14px;"
+            ></iframe>
+
+            <!-- 3. Weekly time series -->
+            <iframe
+              class="graph-frame"
+              src="ga_trends_weekly.html"
+              loading="lazy"
+              style="margin-top:14px;"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- FIELD TRIPS TRENDS PANEL -->
+        <div id="trends-subtab-ft" class="trends-subtab-panel">
+          <div class="card">
+            <div class="card-title">Field Trips – Engagement Trends</div>
+            <div class="card-subtitle">
+              Suggested layout: (1) video or changing view of bookings vs. attendance,
+              (2) monthly trend chart, and (3) weekly patterns for Field Trips.
+            </div>
+
+            <!-- 1. Video / changing view -->
+            <iframe
+              class="graph-frame"
+              src="ft_trends_video.html"
+              loading="lazy"
+            ></iframe>
+
+            <!-- 2. Monthly time series -->
+            <iframe
+              class="graph-frame"
+              src="ft_trends_monthly.html"
+              loading="lazy"
+              style="margin-top:14px;"
+            ></iframe>
+
+            <!-- 3. Weekly time series -->
+            <iframe
+              class="graph-frame"
+              src="ft_trends_weekly.html"
+              loading="lazy"
+              style="margin-top:14px;"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- AFTER-SCHOOL TRENDS PANEL -->
+        <div id="trends-subtab-as" class="trends-subtab-panel">
+          <div class="card">
+            <div class="card-title">After-School – Engagement Trends</div>
+            <div class="card-subtitle">
+              Suggested layout: (1) video or changing participation view,
+              (2) monthly participation trends, and (3) weekly activity patterns
+              for After-School programs.
+            </div>
+
+            <!-- 1. Video / changing view -->
+            <iframe
+              class="graph-frame"
+              src="as_trends_video.html"
+              loading="lazy"
+            ></iframe>
+
+            <!-- 2. Monthly time series -->
+            <iframe
+              class="graph-frame"
+              src="as_trends_monthly.html"
+              loading="lazy"
+              style="margin-top:14px;"
+            ></iframe>
+
+            <!-- 3. Weekly time series -->
+            <iframe
+              class="graph-frame"
+              src="as_trends_weekly.html"
+              loading="lazy"
+              style="margin-top:14px;"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- STYLES & JS FOR TRENDS SUBTABS -->
+        <style>
+          .trends-subtab-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 18px 0 18px 0;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 4px;
+          }
+
+          .trends-subtab-btn {
+            border: none;
+            background: transparent;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #4b5563;
+            letter-spacing: 0.02em;
+            transition: background 0.15s ease, color 0.15s ease;
+          }
+
+          .trends-subtab-btn:hover {
+            background: #e5e7eb;
+          }
+
+          .trends-subtab-btn.trends-active {
+            background: #111827;
+            color: #f9fafb;
+          }
+
+          .trends-subtab-panel {
+            display: none;
+          }
+
+          .trends-subtab-panel.trends-active {
+            display: block;
+          }
+        </style>
+
+        <script>
+          function showTrendsSubtab(id) {
+            document.querySelectorAll('#tab-trends .trends-subtab-panel')
+              .forEach(p => p.classList.remove('trends-active'));
+
+            document.querySelectorAll('#tab-trends .trends-subtab-btn')
+              .forEach(b => b.classList.remove('trends-active'));
+
+            document.getElementById('trends-subtab-' + id).classList.add('trends-active');
+            document.getElementById('trends-btn-' + id).classList.add('trends-active');
+          }
+        </script>
+      </section>
+
+      <!-- FORECASTING & CANDIDATES TAB -->
+      <section id="tab-forecast" class="tab-content">
+        <h1 class="section-title">Forecasting & Candidates</h1>
+        <p class="section-subtitle">
+          Space reserved for forecasting demand and highlighting candidate schools that could
+          benefit from KID Museum’s approach.
+        </p>
+
+        <div class="card">
+          <div class="card-title">Candidate schools & capacity</div>
+          <div class="card-subtitle">
+            Future space for candidate school lists, maps, or forecasting visuals.
+          </div>
+          <p style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
+            You can export any Python, Power BI, or Tableau visuals as stand-alone HTML
+            (e.g., <code>candidate_schools.html</code>) and embed them here using
+            <code>&lt;iframe&gt;</code>, just like the main map on the Geographic Engagement tab.
+          </p>
+        </div>
+      </section>
+
+      <!-- ENGAGEMENT LADDER TAB -->
+      <section id="tab-ladder" class="tab-content">
+        <h1 class="section-title">Engagement Ladder</h1>
+        <p class="section-subtitle">
+          Placeholder for a ladder-of-engagement or Sankey-style visualization showing
+          how schools and families move through KID Museum’s ecosystem (e.g., field trips →
+          after-school programs → camps → teen programs).
+        </p>
+
+        <div class="card">
+          <div class="card-title">Planned visuals</div>
+          <div class="card-subtitle">
+            Ideas for future data storytelling in this section.
+          </div>
+          <ul style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
+            <li>Sankey diagram of program pathways.</li>
+            <li>Stage-based counts of schools or families across the engagement ladder.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EQUITY & METHODS TAB -->
+      <section id="tab-equity" class="tab-content">
+        <h1 class="section-title">Equity & Methods</h1>
+        <p class="section-subtitle">
+          Definitions and methodological notes for how “Title I”, “CEP”, high FARMs,
+          “underserved”, and “underrepresented” are used in this dashboard.
+        </p>
+
+        <div class="card">
+          <div class="card-title">Equity lenses</div>
+          <div class="card-subtitle">
+            You can replace this placeholder text with your official definitions and notes.
+          </div>
+          <ul style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
+            <li><b>Title I:</b> Schools designated as Title I in 2025–26.</li>
+            <li><b>CEP:</b> Schools participating in the Community Eligibility Provision.</li>
+            <li><b>High FARMs:</b> Schools above a chosen FARMs threshold (e.g., &gt; 40%).</li>
+            <li><b>Underserved / Underrepresented:</b> Composite flags using FARMs and race/ethnicity indicators.</li>
+          </ul>
+
+          <div class="pill-row">
+            <span class="pill">Title I</span>
+            <span class="pill">CEP</span>
+            <span class="pill">High FARMs</span>
+            <span class="pill">Underserved</span>
+            <span class="pill">Underrepresented</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function switchTab(name) {
+    document.querySelectorAll('.tab-content').forEach(sec => {
+      sec.classList.remove('active');
+    });
+    document.getElementById('tab-' + name).classList.add('active');
+
+    document.querySelectorAll('.nav-button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    document.querySelectorAll('.nav-button').forEach(btn => {
+      if (btn.getAttribute('onclick').includes("'" + name + "'")) {
+        btn.classList.add('active');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
+
 
 
 
