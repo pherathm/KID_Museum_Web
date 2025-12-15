@@ -908,22 +908,68 @@
     <div class="card-title">Candidate Schools – Forecasted Priority List</div>
 
     <div class="card-subtitle">
-      This priority list identifies schools that would benefit most from future KID Museum outreach.
-      Each school receives a Final Priority Score (FPS) based on equity needs, previous engagement
-      levels, and transportation access.
-    </div>
+  This priority list identifies schools that may benefit most from future KID Museum outreach.
+  Schools are prioritized using equity-related indicators and geographic accessibility to KID Museum sites.
+</div>
 
-    <ul style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
-      <li><b>School Need Score (SNI)</b> – up to 12 points from Title I, CEP, High FARMs, Underserved, and Underrepresented flags.</li>
-      <li><b>Engagement Score (ES)</b> – up to 3 points based on how few prior visits the school has (0 visits = highest score).</li>
-      <li><b>Distance Score (DS)</b> – up to 3 points based on proximity to Ft Totten or Bethesda (closer schools score higher).</li>
-    </ul>
+<div style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
 
-    <p style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
-      <b>Final Priority Score (FPS) = SNI + ES + DS</b>.  
-      Schools are ranked from highest to lowest FPS, meaning higher scores indicate higher potential
-      for equitable impact and outreach effectiveness.
-    </p>
+  <h3 style="margin:14px 0 6px 0; font-size:1.05rem; letter-spacing:0.06em; text-transform:uppercase; color:#111827;">
+    Scoring Framework
+  </h3>
+
+  <p style="margin:0 0 10px 0;">
+    <b>1) School Need Index (SNI):</b> The School Need Index represents equity-related need and is calculated as
+    the sum of equity indicator flags (Title I, CEP, High FARMs, Underserved, Underrepresented).
+  </p>
+
+  <div style="background:#f3f4f6; border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin:8px 0 12px 0;">
+    <code style="font-family: Georgia, 'Times New Roman', serif;">
+      SNI = (Title I) + (CEP) + (High FARMs) + (Underserved) + (Underrepresented)
+    </code>
+  </div>
+
+  <p style="margin:0 0 10px 0;">
+    <b>2) Engagement Score (ES) (Contextual):</b> The Engagement Score is derived from geographic patterns of
+    prior field trip engagement and is used for interpretation and classification purposes. It is not directly
+    included in the Final Priority Score calculation.
+  </p>
+
+  <div style="background:#f3f4f6; border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin:8px 0 12px 0;">
+    <code style="font-family: Georgia, 'Times New Roman', serif;">
+      ES = 3 (very limited engagement), 2 (low), 1 (moderate), 0 (higher engagement)
+    </code>
+  </div>
+
+  <p style="margin:0 0 10px 0;">
+    <b>3) Distance to Nearest KID Museum Site:</b> Distance is calculated to the closest KID Museum location
+    (Ft Totten or Bethesda).
+  </p>
+
+  <div style="background:#f3f4f6; border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin:8px 0 12px 0;">
+    <code style="font-family: Georgia, 'Times New Roman', serif;">
+      D = min(D_FtTotten, D_Bethesda)
+    </code>
+  </div>
+
+  <p style="margin:0 0 10px 0;">
+    <b>Final Priority Score (FPS):</b> The Final Priority Score combines equity need and geographic accessibility
+    using a distance-weighted formula:
+  </p>
+
+  <div style="background:#eef1f4; border:1px solid #e5e7eb; border-radius:12px; padding:12px 14px; margin:8px 0 12px 0;">
+    <code style="font-family: Georgia, 'Times New Roman', serif; font-weight:700;">
+      FPS = 3 × SNI − 0.1 × D
+    </code>
+  </div>
+
+  <p style="margin:0;">
+    Schools are ranked from highest to lowest FPS. Higher scores indicate stronger potential for equitable impact
+    and effective outreach.
+  </p>
+
+</div>
+
 
     <!-- Embedded Priority Ranking Table -->
     <iframe
