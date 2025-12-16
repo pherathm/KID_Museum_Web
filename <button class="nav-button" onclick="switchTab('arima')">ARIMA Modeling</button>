@@ -5,7 +5,7 @@
   <title>KID Museum – Engagement & Equity Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- (Poppins link can stay, but we override with Georgia everywhere) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -15,7 +15,6 @@
 
     body {
       margin: 0;
-      padding: 0;
       font-family: Georgia, "Times New Roman", serif;
       background: #f3f4f6;
       color: #111827;
@@ -23,18 +22,11 @@
       line-height: 1.55;
     }
 
-    /* Force Georgia everywhere */
-    h1, h2, h3, h4, h5, h6,
-    p, li, a, button,
-    .card-title, .section-title, .section-subtitle,
-    .nav-button, .muted, .pill {
+    h1,h2,h3,h4,h5,h6,p,li,a,button {
       font-family: Georgia, "Times New Roman", serif !important;
     }
 
-    .layout {
-      display: flex;
-      min-height: 100vh;
-    }
+    .layout { display: flex; min-height: 100vh; }
 
     /* SIDEBAR */
     .sidebar {
@@ -44,7 +36,6 @@
       padding: 24px 16px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
     }
 
     .sidebar-title {
@@ -52,1270 +43,179 @@
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .nav-button {
-      width: 100%;
-      text-align: left;
       border: none;
       padding: 10px 14px;
+      margin-bottom: 6px;
       border-radius: 6px;
       background: #1f2937;
       color: #e5e7eb;
-      font-size: 0.95rem;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
+      text-align: left;
       cursor: pointer;
-      margin-bottom: 6px;
-      transition: background 0.15s ease, transform 0.05s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
-    .nav-button:hover {
-      background: #374151;
-      transform: translateY(-1px);
-    }
+    .nav-button:hover { background: #374151; }
+    .nav-button.active { background: #f97316; color: #111827; }
 
-    .nav-button.active {
-      background: #f97316;
-      color: #111827;
-    }
+    /* MAIN */
+    .main { flex: 1; background: #f9fafb; }
 
-    /* MAIN CONTENT */
-    .main {
-      flex: 1;
-      background: #f9fafb;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* HEADER */
     .header {
-      background: white;
+      background: #ffffff;
       border-bottom: 1px solid #e5e7eb;
       padding: 20px 32px;
       display: flex;
-      align-items: center;
       gap: 20px;
+      align-items: center;
     }
 
     .logo-img {
       height: 80px;
-      max-width: 260px;
-      width: auto;
-      border-radius: 8px;
-      object-fit: contain;
       background: #f3f4f6;
-      padding: 4px;
+      padding: 6px;
+      border-radius: 8px;
     }
 
     .header-text-main {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: #f97316;
-      text-transform: uppercase;
       letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .header-text-sub {
-      font-size: 0.9rem;
-      color: #4b5563;
-      text-transform: uppercase;
+      font-size: 0.85rem;
+      color: #6b7280;
       letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
 
-    /* CONTENT AREA */
-    .content {
-      padding: 24px 32px 32px 32px;
-    }
+    .content { padding: 24px 32px; }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
 
     .section-title {
-      font-size: 1.85rem;
+      font-size: 1.8rem;
       font-weight: 700;
-      margin: 0 0 6px 0;
-      text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #111827;
+      text-transform: uppercase;
+      margin-bottom: 6px;
     }
 
     .section-subtitle {
-      font-size: 1.05rem;
       color: #6b7280;
-      margin-bottom: 18px;
       max-width: 900px;
+      margin-bottom: 18px;
     }
 
     .card {
       background: white;
       border-radius: 10px;
-      padding: 16px 18px 18px 18px;
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
-      border: 1px solid #e5e7eb;
+      padding: 18px;
       margin-bottom: 18px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
     }
 
     .card-title {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 6px;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+      margin-bottom: 6px;
     }
 
-    .card-subtitle {
-      font-size: 0.95rem;
-      color: #6b7280;
-      margin-bottom: 10px;
-    }
-
-    .map-frame {
-      width: 100%;
-      height: 650px;
-      border: none;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .graph-frame {
-      width: 100%;
-      height: 420px;
-      border: none;
-      border-radius: 8px;
-      overflow: hidden;
-      display: block;
-    }
-
-    .muted {
-      font-size: 0.95rem;
-      color: #9ca3af;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .pill {
-      font-size: 0.85rem;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: #fee2e2;
-      color: #b91c1c;
-    }
-
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
+    .map-frame { width: 100%; height: 650px; border: none; border-radius: 8px; }
+    .graph-frame { width: 100%; height: 420px; border: none; border-radius: 8px; }
 
     @media (max-width: 900px) {
-      .layout {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        flex-direction: row;
-        overflow-x: auto;
-        white-space: nowrap;
-      }
-      .nav-button {
-        flex: 1;
-        text-align: center;
-        font-size: 0.8rem;
-      }
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; flex-direction: row; overflow-x: auto; }
+      .nav-button { font-size: 0.8rem; flex: 1; text-align: center; }
     }
   </style>
 </head>
+
 <body>
 
 <div class="layout">
+
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <div class="sidebar-title">KID DASHBOARD</div>
+    <div class="sidebar-title">KID Dashboard</div>
+
     <button class="nav-button active" onclick="switchTab('home')">Home</button>
     <button class="nav-button" onclick="switchTab('geo')">Geographic Engagement</button>
-    <button class="nav-button" onclick="switchTab('school')">School Demography & Equity Layers</button>
+    <button class="nav-button" onclick="switchTab('school')">School Demography & Equity</button>
     <button class="nav-button" onclick="switchTab('trends')">Trends Analysis</button>
-    <button class="nav-button" onclick="switchTab('arima')">ARIMA Modeling</button>
     <button class="nav-button" onclick="switchTab('forecast')">Forecasting & Candidates</button>
     <button class="nav-button" onclick="switchTab('ladder')">Engagement Ladder</button>
-    <button class="nav-button" onclick="switchTab('attendance')">Attendance & Attrition
-</button>
+    <button class="nav-button" onclick="switchTab('attendance')">Attendance & Attrition</button>
   </aside>
 
   <!-- MAIN -->
   <div class="main">
-    <!-- HEADER -->
+
     <header class="header">
-      <img src="kid_logo.png" alt="KID Museum Logo" class="logo-img">
+      <img src="kid_logo.png" class="logo-img">
       <div>
-        <div class="header-text-main">KID MUSEUM – ENGAGEMENT & EQUITY DASHBOARD</div>
-        <div class="header-text-sub">
-          SCHOOL ENGAGEMENT · PROGRAM DEMAND · EQUITY LENSES · MCPS · DCPS · PARTNER SCHOOLS
-        </div>
+        <div class="header-text-main">KID Museum – Engagement & Equity Dashboard</div>
+        <div class="header-text-sub">MCPS · DCPS · Program Demand · Equity Lenses</div>
       </div>
     </header>
 
-    <!-- CONTENT -->
     <div class="content">
 
-      <!-- HOME TAB -->
+      <!-- HOME -->
       <section id="tab-home" class="tab-content active">
         <h1 class="section-title">Home</h1>
-
-        <!-- Updated description with darker background -->
-        <div style="
-            background:#eef1f4;
-            padding:20px 24px;
-            border-radius:14px;
-            margin-bottom:24px;
-            max-width:900px;
-        ">
-          <p class="section-subtitle" style="font-size: 1.08rem; line-height: 1.6; margin:0;">
-            This dashboard supports KID Museum’s strategic program planning and outreach to local schools.
-            It helps the organization understand which schools are most accessible, the communities they
-            serve, and how student engagement changes over time. By integrating GIS data, census
-            demographics, and program participation records, this project identifies outreach opportunities,
-            highlights equity considerations, forecasts program demand, and provides insights that guide
-            decision-making and strengthen partnerships.
-            <br><br>
-            As part of this work, different analytical techniques come together, including geospatial
-            mapping, forecasting, and dashboard design. These components create a comprehensive tool that
-            helps communicate meaningful patterns to both technical and non-technical audiences.
-          </p>
-        </div>
-
         <div class="card">
-          <div class="card-title">How to use this dashboard</div>
-          <div class="card-subtitle">
-            Select a section from the left navigation menu to explore different components of the dashboard.
-          </div>
-          <ul style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
-            <li><b>Geographic Engagement:</b> Map of schools, program touchpoints, and equity buffers.</li>
-            <li><b>Trends & Attrition:</b> Space for monthly and quarterly trends in program participation.</li>
-            <li><b>Forecasting & Candidates:</b> Future visuals highlighting demand and candidate schools.</li>
-            <li><b>Engagement Ladder:</b> Planned pathway and ladder visual for families and schools.</li>
-            <li><b>Equity & Methods:</b> Definitions and methodological notes for equity categories.</li>
-          </ul>
+          This dashboard supports KID Museum’s outreach, equity analysis,
+          and program planning using GIS, time-series analysis, and engagement data.
         </div>
       </section>
 
-      <!-- GEOGRAPHIC ENGAGEMENT TAB -->
+      <!-- GEO -->
       <section id="tab-geo" class="tab-content">
         <h1 class="section-title">Geographic Engagement</h1>
-        <p class="section-subtitle">
-          Interactive map of MCPS and DCPS schools, program visits, and equity-focused buffers
-          (Title I, CEP, FARMs, underserved, and underrepresented) around KID Museum sites.
-        </p>
-
-        <!-- SUBTABS JUST FOR GEOGRAPHIC ENGAGEMENT -->
-        <div class="geo-subtab-bar">
-          <button class="geo-subtab-btn geo-active" onclick="showGeoSubtab('ga')" id="geo-btn-ga">
-            General Admissions – Reach & Access
-          </button>
-          <button class="geo-subtab-btn" onclick="showGeoSubtab('ft')" id="geo-btn-ft">
-            Field Trips – Engagement & Access
-          </button>
-          <button class="geo-subtab-btn" onclick="showGeoSubtab('af')" id="geo-btn-af">
-            After-School – Engagement & Access
-          </button>
-          <button class="geo-subtab-btn" onclick="showGeoSubtab('heat')" id="geo-btn-heat">
-            Heat Map View
-          </button>
-        </div>
-
-        <!-- SUBTAB 1: GENERAL ADMISSIONS -->
-        <div id="geo-subtab-ga" class="geo-subtab-panel geo-active">
-          <div class="two-column">
-            <!-- LEFT: MAP -->
-            <div class="card">
-              <div class="card-title">General Admissions Map</div>
-              <div class="card-subtitle">
-                Interactive map of General Admissions touchpoints. Layers can include equity buffers and
-                rings around KID Museum sites.
-              </div>
-
-              <iframe
-                class="map-frame"
-                src="ga_map.html"
-                loading="lazy"
-              ></iframe>
-            </div>
-
-            <!-- RIGHT: EASY TRANSPORTATION GRAPHS -->
-            <div class="card">
-              <div class="card-title">Easy Transportation Radius – General Admissions</div>
-              <div class="card-subtitle">
-                Bar charts summarizing General Admissions visitors by distance band from Ft Totten
-                and Bethesda Metro (3BMC).
-              </div>
-
-              <iframe
-                class="graph-frame"
-                src="general_admissions_radius_chart.html"
-                loading="lazy"
-              ></iframe>
-
-              <div class="card-subtitle" style="margin-top:10px;">
-                Possible views:
-                <ul>
-                  <li>0–5, 5–10, 10–15 mile bands for Ft Totten and BMC.</li>
-                  <li>Comparison of GA visitors by school cluster or district.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SUBTAB 2: FIELD TRIPS -->
-        <div id="geo-subtab-ft" class="geo-subtab-panel">
-          <div class="two-column">
-            <!-- LEFT: MAP -->
-            <div class="card">
-              <div class="card-title">Field Trips Map</div>
-              <div class="card-subtitle">
-                Map of schools participating in KID Museum field trips, with optional layers for equity and access.
-              </div>
-
-              <iframe
-                class="map-frame"
-                src="ft_map.html"
-                loading="lazy"
-              ></iframe>
-            </div>
-
-            <!-- RIGHT: EASY TRANSPORTATION GRAPHS -->
-            <div class="card">
-              <div class="card-title">Easy Transportation Radius – Field Trips</div>
-              <div class="card-subtitle">
-                Charts showing field trip engagement by mileage band or travel time from KID Museum sites.
-              </div>
-
-              <iframe
-                class="graph-frame"
-                src="field_trips_radius_chart.html"
-                loading="lazy"
-              ></iframe>
-
-              <div class="card-subtitle" style="margin-top:10px;">
-                Possible views:
-                <ul>
-                  <li>Field trips by distance band (e.g., &lt;10 miles, 10–25 miles).</li>
-                  <li>Difference between bookings and actual attendance by access zone.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SUBTAB 3: AFTER-SCHOOL -->
-        <div id="geo-subtab-af" class="geo-subtab-panel">
-          <div class="two-column">
-            <!-- LEFT: MAP -->
-            <div class="card">
-              <div class="card-title">After-School & Transportation Map</div>
-              <div class="card-subtitle">
-                After-school program locations and access buffers around KID Museum sites.
-              </div>
-
-              <iframe
-                class="map-frame"
-                src="af_map.html"
-                loading="lazy"
-              ></iframe>
-            </div>
-
-            <!-- RIGHT: EASY TRANSPORTATION GRAPHS -->
-            <div class="card">
-              <div class="card-title">Easy Transportation Radius – After-School</div>
-              <div class="card-subtitle">
-                Bar charts showing after-school engagement by distance or travel-time bands.
-              </div>
-
-              <iframe
-                class="graph-frame"
-                src="after-school_radius_chart.html"
-                loading="lazy"
-              ></iframe>
-
-              <div class="card-subtitle" style="margin-top:10px;">
-                Possible views:
-                <ul>
-                  <li>After-school students within key access zones.</li>
-                  <li>Comparison of engagement from nearby vs. farther schools.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SUBTAB 4: HEAT MAP VIEW -->
-        <div id="geo-subtab-heat" class="geo-subtab-panel">
-          <div class="card">
-            <div class="card-title">Heat Map View – All Programs</div>
-            <div class="card-subtitle">
-              Heat map showing combined program intensity across schools. This view helps identify clusters
-              of high engagement and potential gaps in outreach.
-            </div>
-
-            <iframe
-              class="map-frame"
-              src="all_programs_heat.html"
-              loading="lazy"
-            ></iframe>
-
-            <p class="muted" style="margin-top:10px;">
-              HEAT MAP GENERATED VIA PYTHON / FOLIUM · HOSTED AS HTML IN THIS REPOSITORY
-            </p>
-          </div>
-        </div>
-
-        <!-- STYLES & JS ONLY FOR GEO SUBTABS -->
-        <style>
-          .geo-subtab-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 18px 0 18px 0;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 4px;
-          }
-
-          .geo-subtab-btn {
-            border: none;
-            background: transparent;
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            color: #4b5563;
-            letter-spacing: 0.02em;
-            transition: background 0.15s ease, color 0.15s ease;
-          }
-
-          .geo-subtab-btn:hover {
-            background: #e5e7eb;
-          }
-
-          .geo-subtab-btn.geo-active {
-            background: #111827;
-            color: #f9fafb;
-          }
-
-          .geo-subtab-panel {
-            display: none;
-          }
-
-          .geo-subtab-panel.geo-active {
-            display: block;
-          }
-
-          .two-column {
-            display: grid;
-            grid-template-columns: 60% 40%;
-            gap: 16px;
-          }
-
-          @media (max-width: 900px) {
-            .two-column {
-              grid-template-columns: 1fr;
-            }
-          }
-        </style>
-
-        <script>
-          function showGeoSubtab(id) {
-            document.querySelectorAll('#tab-geo .geo-subtab-panel')
-              .forEach(function (p) { p.classList.remove('geo-active'); });
-
-            document.querySelectorAll('#tab-geo .geo-subtab-btn')
-              .forEach(function (b) { b.classList.remove('geo-active'); });
-
-            document.getElementById('geo-subtab-' + id).classList.add('geo-active');
-            document.getElementById('geo-btn-' + id).classList.add('geo-active');
-          }
-        </script>
+        <iframe class="map-frame" src="ga_map.html"></iframe>
       </section>
 
-      <!-- SCHOOL DEMOGRAPHY & EQUITY LAYERS TAB -->
+      <!-- SCHOOL -->
       <section id="tab-school" class="tab-content">
-        <h1 class="section-title">School Demography & Equity Layers</h1>
-        <p class="section-subtitle">
-          This tab focuses on school-level demographics and the equity lenses used in this project,
-          including Title I, CEP, FARMs, and composite measures such as underserved and underrepresented.
-          It helps connect demographic context to KID Museum’s engagement patterns.
-        </p>
-
-        <!-- SUBTABS FOR THIS TAB -->
-        <div class="school-subtab-bar">
-          <button class="school-subtab-btn school-active" onclick="showSchoolSubtab('demo')" id="school-btn-demo">
-            School Demographic
-          </button>
-          <button class="school-subtab-btn" onclick="showSchoolSubtab('equity')" id="school-btn-equity">
-            Equity Layers
-          </button>
-        </div>
-
-        <!-- SUBTAB 1: SCHOOL DEMOGRAPHIC -->
-        <div id="school-subtab-demo" class="school-subtab-panel school-active">
-          <div class="card">
-            <div class="card-title">School Demographic View</div>
-            <div class="card-subtitle">
-              Combined view of schools, program participation, and equity-related flags, used as a base
-              layer for demographic analysis.
-            </div>
-
-            <iframe
-              class="map-frame"
-              src="kid_schools_programs_buffers_with_legend.html"
-              loading="lazy"
-            ></iframe>
-
-            <p class="muted" style="margin-top:10px;">
-              MAP GENERATED VIA PYTHON / FOLIUM · HOSTED AS HTML IN THIS REPOSITORY
-            </p>
-          </div>
-        </div>
-
-        <!-- SUBTAB 2: EQUITY LAYERS (NO MAP YET) -->
-        <div id="school-subtab-equity" class="school-subtab-panel">
-          <div class="card">
-            <div class="card-title">Equity Layers</div>
-            <div class="card-subtitle">
-              Definitions and interpretation of the equity-related indicators used on the maps and in this dashboard.
-            </div>
-
-            <ul style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
-              <li><b>Title I:</b> Schools designated as Title I in the relevant school year.</li>
-              <li><b>CEP:</b> Schools participating in the Community Eligibility Provision.</li>
-              <li><b>High FARMs:</b> Schools above a chosen FARMs threshold (for example, &gt; 40%).</li>
-              <li><b>Underserved / Underrepresented:</b> Composite flags combining FARMs and race/ethnicity indicators.</li>
-            </ul>
-
-            <div class="pill-row">
-              <span class="pill">Title I</span>
-              <span class="pill">CEP</span>
-              <span class="pill">High FARMs</span>
-              <span class="pill">Underserved</span>
-              <span class="pill">Underrepresented</span>
-            </div>
-
-            <div class="card-subtitle" style="margin-top:12px;">
-              This tab is intended to connect the visual layers on the maps with clear definitions, so that
-              staff and partners can interpret the equity views confidently.
-            </div>
-          </div>
-        </div>
-
-        <!-- STYLES & JS FOR SCHOOL SUBTABS -->
-        <style>
-          .school-subtab-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 18px 0 18px 0;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 4px;
-          }
-
-          .school-subtab-btn {
-            border: none;
-            background: transparent;
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            color: #4b5563;
-            letter-spacing: 0.02em;
-            transition: background 0.15s ease, color 0.15s ease;
-          }
-
-          .school-subtab-btn:hover {
-            background: #e5e7eb;
-          }
-
-          .school-subtab-btn.school-active {
-            background: #111827;
-            color: #f9fafb;
-          }
-
-          .school-subtab-panel {
-            display: none;
-          }
-
-          .school-subtab-panel.school-active {
-            display: block;
-          }
-        </style>
-
-        <script>
-          function showSchoolSubtab(id) {
-            document.querySelectorAll('#tab-school .school-subtab-panel')
-              .forEach(function (p) { p.classList.remove('school-active'); });
-
-            document.querySelectorAll('#tab-school .school-subtab-btn')
-              .forEach(function (b) { b.classList.remove('school-active'); });
-
-            document.getElementById('school-subtab-' + id).classList.add('school-active');
-            document.getElementById('school-btn-' + id).classList.add('school-active');
-          }
-        </script>
+        <h1 class="section-title">School Demography & Equity</h1>
+        <iframe class="map-frame" src="kid_schools_programs_buffers_with_legend.html"></iframe>
       </section>
 
-      <!-- TRENDS & ATTRITION TAB -->
-     
-
-<section id="tab-trends" class="tab-content">
-  <h1 class="section-title">Trends & Attrition</h1>
-  <p class="section-subtitle">
-    Time-series and attrition views for General Admissions, Field Trips, and After-School programs.
-    Each subtab focuses on engagement trends for one program area, including map views,
-    monthly time series, and weekly/weekday animations.
-  </p>
-
-  <!-- SUBTABS FOR TRENDS & ATTRITION -->
-  <div class="trends-subtab-bar">
-    <button class="trends-subtab-btn trends-active" onclick="showTrendsSubtab('ga')" id="trends-btn-ga">
-      General Admissions – Engagement Trends
-    </button>
-    <button class="trends-subtab-btn" onclick="showTrendsSubtab('ft')" id="trends-btn-ft">
-      Field Trips – Engagement Trends
-    </button>
-    <button class="trends-subtab-btn" onclick="showTrendsSubtab('as')" id="trends-btn-as">
-      After-School – Engagement Trends
-    </button>
-  </div>
-
-  <!-- GA TRENDS PANEL -->
-  <div id="trends-subtab-ga" class="trends-subtab-panel trends-active">
-    <div class="card">
-      <div class="card-title">General Admissions – Engagement Trends</div>
-      <div class="card-subtitle">
-        Map view, monthly time-series, and weekday/weekly animation for General Admissions.
-      </div>
-
-      <!-- 1. MAP -->
-      <iframe
-        class="graph-frame"
-        src="ga_weekly_map.html"
-        loading="lazy"
-        allow="autoplay"
-      ></iframe>
-
-      <!-- 2. MONTHLY TIME SERIES -->
-      <iframe
-        class="graph-frame"
-        src="ga_monthly_trends.html"
-        loading="lazy"
-        allow="autoplay"
-        style="margin-top:14px;"
-      ></iframe>
-
-      <!-- 3. WEEKLY / WEEKDAY ANIMATED -->
-      <iframe
-        class="graph-frame"
-        src="ga_weekday_new.html"
-        loading="lazy"
-        allow="autoplay"
-        style="margin-top:14px;"
-      ></iframe>
-    </div>
-  </div>
-
-  <!-- FIELD TRIPS TRENDS PANEL -->
-  <div id="trends-subtab-ft" class="trends-subtab-panel">
-    <div class="card">
-      <div class="card-title">Field Trips – Engagement Trends</div>
-      <div class="card-subtitle">
-        Map view, monthly trends, and weekday/weekly animation for Field Trips.
-      </div>
-
-      <!-- 1. MAP -->
-      <iframe
-        class="graph-frame"
-        src="ft_weekly_map.html"
-        loading="lazy"
-        allow="autoplay"
-      ></iframe>
-
-      <!-- 2. MONTHLY TIME SERIES -->
-      <iframe
-        class="graph-frame"
-        src="ft_monthly_trends.html"
-        loading="lazy"
-        allow="autoplay"
-        style="margin-top:14px;"
-      ></iframe>
-
-      <!-- 3. WEEKLY / WEEKDAY ANIMATED -->
-      <iframe
-        class="graph-frame"
-        src="ft_weekday_animated.html"
-        loading="lazy"
-        allow="autoplay"
-        style="margin-top:14px;"
-      ></iframe>
-    </div>
-  </div>
-
-  <!-- AFTER-SCHOOL TRENDS PANEL -->
-  <div id="trends-subtab-as" class="trends-subtab-panel">
-    <div class="card">
-      <div class="card-title">After-School – Engagement Trends</div>
-      <div class="card-subtitle">
-        Map view, monthly participation, and weekday/weekly animation for After-School programs.
-      </div>
-
-      <!-- 1. MAP -->
-      <iframe
-        class="graph-frame"
-        src="as_weekly_cumulative_map_2023_2025 (1).html"
-        loading="lazy"
-        allow="autoplay"
-      ></iframe>
-
-      <!-- 2. MONTHLY TIME SERIES -->
-      <iframe
-        class="graph-frame"
-        src="as_monthly_trends.html"
-        loading="lazy"
-        allow="autoplay"
-        style="margin-top:14px;"
-      ></iframe>
-
-      <!-- 3. WEEKLY / WEEKDAY ANIMATED -->
-      <iframe
-        class="graph-frame"
-        src="after_school_weekday_new.html"
-        loading="lazy"
-        allow="autoplay"
-        style="margin-top:14px;"
-      ></iframe>
-    </div>
-  </div>
-
-  <!-- STYLES & JS FOR TRENDS SUBTABS -->
-  <style>
-    .trends-subtab-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 18px 0 18px 0;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 4px;
-    }
-
-    .trends-subtab-btn {
-      border: none;
-      background: transparent;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      color: #4b5563;
-      letter-spacing: 0.02em;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    .trends-subtab-btn:hover {
-      background: #e5e7eb;
-    }
-
-    .trends-subtab-btn.trends-active {
-      background: #111827;
-      color: #f9fafb;
-    }
-
-    .trends-subtab-panel {
-      display: none;
-    }
-
-    .trends-subtab-panel.trends-active {
-      display: block;
-    }
-  </style>
-
-  <script>
-    function showTrendsSubtab(id) {
-      document.querySelectorAll('#tab-trends .trends-subtab-panel')
-        .forEach(p => p.classList.remove('trends-active'));
-
-      document.querySelectorAll('#tab-trends .trends-subtab-btn')
-        .forEach(b => b.classList.remove('trends-active'));
-
-      document.getElementById('trends-subtab-' + id).classList.add('trends-active');
-      document.getElementById('trends-btn-' + id).classList.add('trends-active');
-    }
-  </script>
-</section>
-
-    <!-- FORECASTING & CANDIDATES TAB -->
-<section id="tab-forecast" class="tab-content">
-  <h1 class="section-title">Forecasting & Candidates</h1>
-  <p class="section-subtitle">
-    This section highlights forecasted opportunity areas and specific schools that could benefit
-    from KID Museum’s approach, especially public and charter schools with high need and limited
-    prior engagement.
-  </p>
-
-  <!-- SUBTABS FOR FORECASTING -->
-  <div class="forecast-subtab-bar">
-    <button class="forecast-subtab-btn forecast-active" onclick="showForecastSubtab('map')" id="forecast-btn-map">
-      Forecast Map – Priority School Clusters
-    </button>
-    <button class="forecast-subtab-btn" onclick="showForecastSubtab('candidates')" id="forecast-btn-candidates">
-      Candidate Schools – Forecasted Priority List
-    </button>
-  </div>
-
-  <!-- SUBTAB 1: FORECAST MAP -->
-  <div id="forecast-subtab-map" class="forecast-subtab-panel forecast-active">
-    <div class="card">
-      <div class="card-title">Forecast Map – Priority School Clusters</div>
-      <div class="card-subtitle">
-        Map view of schools, equity indicators, and access rings used to identify clusters of schools
-        that may benefit most from KID Museum outreach.
-      </div>
-
-      <iframe
-        class="map-frame"
-        src="kid_schools_programs_buffers_with_legend_and_forecast1.html"
-
-        loading="lazy"
-      ></iframe>
-
-      <p class="muted" style="margin-top:10px;">
-        FORECAST MAP GENERATED VIA PYTHON / FOLIUM · OVERLAYS PROGRAM ENGAGEMENT WITH EQUITY LAYERS
-      </p>
-    </div>
-  </div>
-
-  <!-- SUBTAB 2: CANDIDATE SCHOOLS TABLE -->
-<div id="forecast-subtab-candidates" class="forecast-subtab-panel">
-  <div class="card">
-    <div class="card-title">Candidate Schools – Forecasted Priority List</div>
-
-    <div class="card-subtitle">
-  This priority list identifies schools that may benefit most from future KID Museum outreach.
-  Schools are prioritized using equity-related indicators and geographic accessibility to KID Museum sites.
-</div>
-
-<div style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
-
-  <h3 style="margin:14px 0 6px 0; font-size:1.05rem; letter-spacing:0.06em; text-transform:uppercase; color:#111827;">
-    Scoring Framework
-  </h3>
-
-  <p style="margin:0 0 10px 0;">
-    <b>1) School Need Index (SNI):</b> The School Need Index represents equity-related need and is calculated as
-    the sum of equity indicator flags (Title I, CEP, High FARMs, Underserved, Underrepresented).
-  </p>
-
-  <div style="background:#f3f4f6; border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin:8px 0 12px 0;">
-    <code style="font-family: Georgia, 'Times New Roman', serif;">
-      SNI = (Title I) + (CEP) + (High FARMs) + (Underserved) + (Underrepresented)
-    </code>
-  </div>
-
-  <p style="margin:0 0 10px 0;">
-    <b>2) Engagement Score (ES) (Contextual):</b> The Engagement Score is derived from geographic patterns of
-    prior field trip engagement and is used for interpretation and classification purposes. It is not directly
-    included in the Final Priority Score calculation.
-  </p>
-
-  <div style="background:#f3f4f6; border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin:8px 0 12px 0;">
-    <code style="font-family: Georgia, 'Times New Roman', serif;">
-      ES = 3 (very limited engagement), 2 (low), 1 (moderate), 0 (higher engagement)
-    </code>
-  </div>
-
-  <p style="margin:0 0 10px 0;">
-    <b>3) Distance to Nearest KID Museum Site:</b> Distance is calculated to the closest KID Museum location
-    (Ft Totten or Bethesda).
-  </p>
-
-  <div style="background:#f3f4f6; border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin:8px 0 12px 0;">
-    <code style="font-family: Georgia, 'Times New Roman', serif;">
-      D = min(D_FtTotten, D_Bethesda)
-    </code>
-  </div>
-
-  <p style="margin:0 0 10px 0;">
-    <b>Final Priority Score (FPS):</b> The Final Priority Score combines equity need and geographic accessibility
-    using a distance-weighted formula:
-  </p>
-
-  <div style="background:#eef1f4; border:1px solid #e5e7eb; border-radius:12px; padding:12px 14px; margin:8px 0 12px 0;">
-    <code style="font-family: Georgia, 'Times New Roman', serif; font-weight:700;">
-      FPS = 3 × SNI − 0.1 × D
-    </code>
-  </div>
-
-  <p style="margin:0;">
-    Schools are ranked from highest to lowest FPS. Higher scores indicate stronger potential for equitable impact
-    and effective outreach.
-  </p>
-
-</div>
-
-
-    <!-- Embedded Priority Ranking Table -->
-    <iframe
-      class="map-frame"
-     src="KID_candidate_schools_FT_only_clean1.html"
-
-      loading="lazy"
-    ></iframe>
-
-    <p class="muted" style="margin-top:10px;">
-      TABLE GENERATED VIA PYTHON · SORTED BY FINAL PRIORITY SCORE (FPS)
-    </p>
-  </div>
-</div>
-
-  <!-- STYLES & JS FOR FORECAST SUBTABS -->
-  <style>
-    .forecast-subtab-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 18px 0 18px 0;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 4px;
-    }
-
-    .forecast-subtab-btn {
-      border: none;
-      background: transparent;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      color: #4b5563;
-      letter-spacing: 0.02em;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    .forecast-subtab-btn:hover {
-      background: #e5e7eb;
-    }
-
-    .forecast-subtab-btn.forecast-active {
-      background: #111827;
-      color: #f9fafb;
-    }
-
-    .forecast-subtab-panel {
-      display: none;
-    }
-
-    .forecast-subtab-panel.forecast-active {
-      display: block;
-    }
-  </style>
-
-  <script>
-    function showForecastSubtab(id) {
-      document.querySelectorAll('#tab-forecast .forecast-subtab-panel')
-        .forEach(function (p) { p.classList.remove('forecast-active'); });
-
-      document.querySelectorAll('#tab-forecast .forecast-subtab-btn')
-        .forEach(function (b) { b.classList.remove('forecast-active'); });
-
-      document.getElementById('forecast-subtab-' + id).classList.add('forecast-active');
-      document.getElementById('forecast-btn-' + id).classList.add('forecast-active');
-    }
-  </script>
-</section>
-
-
-      <!-- ENGAGEMENT LADDER TAB -->
-
-
-<!-- ENGAGEMENT LADDER TAB -->
-<section id="tab-ladder" class="tab-content">
-  <h1 class="section-title">Engagement Ladder</h1>
-  <p class="section-subtitle">
-    Sankey-style diagrams showing how communities, schools, and families move through KID Museum’s
-    ecosystem – from community ZIP codes into program types, and from field trips into deeper
-    engagement such as general admission and membership-style visits.
-  </p>
-
-
-  
-  <!-- SUBTABS FOR ENGAGEMENT LADDER -->
-  <div class="ladder-subtab-bar">
-    <button class="ladder-subtab-btn ladder-active" onclick="showLadderSubtab('s1')" id="ladder-btn-s1">
-      Community ZIP → GA / FT / AS
-    </button>
-    <button class="ladder-subtab-btn" onclick="showLadderSubtab('s2')" id="ladder-btn-s2">
-      District ZIP → FT / AS
-    </button>
-    <button class="ladder-subtab-btn" onclick="showLadderSubtab('s3')" id="ladder-btn-s3">
-      School ZIP → FT / AS
-    </button>
-    <button class="ladder-subtab-btn" onclick="showLadderSubtab('s4')" id="ladder-btn-s4">
-      Family Email → GA / AS
-    </button>
-    <button class="ladder-subtab-btn" onclick="showLadderSubtab('s5')" id="ladder-btn-s5">
-      FT Schools → Membership / Visits
-    </button>
-  </div>
-
-  <!-- SUBTAB 1: COMMUNITY ZIP → PROGRAM TYPE -->
-  <div id="ladder-subtab-s1" class="ladder-subtab-panel ladder-active">
-    <div class="card">
-      <div class="card-title">Community ZIP → General Admissions / Field Trips / After-School</div>
-      <div class="card-subtitle">
-        This Sankey diagram aggregates all visits by <b>community ZIP code</b> and shows how those
-        communities connect into three main program types: General Admissions (GA), Field Trips (FT),
-        and After-School (AS). Each flow represents the total number of visits from that ZIP into
-        each program type.
-      </div>
-
-      <iframe
-        class="graph-frame"
-        src="three_stage_engagement_sankey.html"
-        loading="lazy"
-      ></iframe>
-    </div>
-  </div>
-
-  <!-- SUBTAB 2: DISTRICT ZIP → FT / AS -->
-  <div id="ladder-subtab-s2" class="ladder-subtab-panel">
-    <div class="card">
-      <div class="card-title">District ZIP → Field Trips / After-School</div>
-      <div class="card-subtitle">
-        This Sankey uses <b>district-level ZIP codes</b> to show how different school districts are
-        engaging with KID Museum through Field Trips and After-School programs. Flows are weighted
-        by the count of visits from each district ZIP into FT and AS.
-      </div>
-
-      <iframe
-        class="graph-frame"
-        src="sankey_2_district_zip_ft_as.html"
-        loading="lazy"
-      ></iframe>
-    </div>
-  </div>
-
-  <!-- SUBTAB 3: SCHOOL ZIP → FT / AS -->
-  <div id="ladder-subtab-s3" class="ladder-subtab-panel">
-    <div class="card">
-      <div class="card-title">School ZIP → Field Trips / After-School</div>
-      <div class="card-subtitle">
-        This view zooms in to the <b>school ZIP code level</b>. Each starting node is a school ZIP,
-        and links show how schools in that ZIP participate in Field Trips and After-School programs.
-        It helps identify ZIP codes where schools are only using one program type and may be ready
-        to move further along the ladder.
-      </div>
-
-      <iframe
-        class="graph-frame"
-        src="sankey_3_school_zip_ft_as.html"
-        loading="lazy"
-      ></iframe>
-    </div>
-  </div>
-
-  <!-- SUBTAB 4: FAMILY EMAIL → GA / AS -->
-  <div id="ladder-subtab-s4" class="ladder-subtab-panel">
-    <div class="card">
-      <div class="card-title">Family Email → General Admissions / After-School</div>
-      <div class="card-subtitle">
-        Here, each starting node is a unique <b>family email</b>. The flows show how families move
-        from initial contact into General Admissions and then into After-School programs. This
-        Sankey is built by grouping visits by email and counting how many GA and AS touchpoints each
-        family has, revealing a family-level ladder of engagement.
-      </div>
-
-      <iframe
-        class="graph-frame"
-        src="sankey_4_family_email_ga_as.html"
-        loading="lazy"
-      ></iframe>
-    </div>
-  </div>
-
-  <!-- SUBTAB 5: FIELD TRIP SCHOOLS → MEMBERSHIP / REPEAT VISITS -->
-  <div id="ladder-subtab-s5" class="ladder-subtab-panel">
-    <div class="card">
-      <div class="card-title">Field Trip Schools → Membership / Repeat Visits</div>
-      <div class="card-subtitle">
-        This Sankey looks at the <b>pathway from Field Trip participation into deeper engagement</b>.
-        Schools that attend Field Trips are linked forward into membership-style or repeat visit
-        categories, using counts of FT visits and follow-up visits. It helps illustrate how Field
-        Trips can serve as an entry point into longer-term relationships with schools.
-      </div>
-
-      <iframe
-        class="graph-frame"
-        src="sankey_5_ft_school_membership_visits.html"
-        loading="lazy"
-      ></iframe>
-    </div>
-  </div>
-
-  <!-- STYLES & JS FOR LADDER SUBTABS -->
-  <style>
-    .ladder-subtab-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 18px 0 18px 0;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 4px;
-    }
-
-    .ladder-subtab-btn {
-      border: none;
-      background: transparent;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      color: #4b5563;
-      letter-spacing: 0.02em;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    .ladder-subtab-btn:hover {
-      background: #e5e7eb;
-    }
-
-    .ladder-subtab-btn.ladder-active {
-      background: #111827;
-      color: #f9fafb;
-    }
-
-    .ladder-subtab-panel {
-      display: none;
-    }
-
-    .ladder-subtab-panel.ladder-active {
-      display: block;
-    }
-  </style>
-
-  <script>
-    function showLadderSubtab(id) {
-      document.querySelectorAll('#tab-ladder .ladder-subtab-panel')
-        .forEach(function (p) { p.classList.remove('ladder-active'); });
-
-      document.querySelectorAll('#tab-ladder .ladder-subtab-btn')
-        .forEach(function (b) { b.classList.remove('ladder-active'); });
-
-      document.getElementById('ladder-subtab-' + id).classList.add('ladder-active');
-      document.getElementById('ladder-btn-' + id).classList.add('ladder-active');
-    }
-  </script>
-</section>
-
-      <!-- ATTENDANCE & ATTRITION TAB -->
-<section id="tab-attendance" class="tab-content">
-  <h1 class="section-title">Attendance & Attrition</h1>
-  <p class="section-subtitle">
-    This section summarizes attendance outcomes (attended vs no-show) and shows scenario-based
-    forecasting to support planning and capacity decisions.
-  </p>
-
-  <!-- SUBTABS -->
-  <div class="aa-subtab-bar">
-    <button class="aa-subtab-btn aa-active" onclick="showAASubtab('attrition')" id="aa-btn-attrition">
-      Attendance & Attrition
-    </button>
-    <button class="aa-subtab-btn" onclick="showAASubtab('forecast')" id="aa-btn-forecast">
-      Forecasting of Attendance
-    </button>
-  </div>
-
-  <!-- SUBTAB 1 -->
-  <div id="aa-subtab-attrition" class="aa-subtab-panel aa-active">
-    <div class="card">
-      <div class="card-title">Attendance & Attrition</div>
-      <div class="card-subtitle">
-        Overview of attended vs no-show outcomes for General Admissions.
-      </div>
-
-      <iframe class="graph-frame" src="ga_attendance_attrition.html" loading="lazy"></iframe>
-    </div>
-  </div>
-
-  <!-- SUBTAB 2 -->
-  <div id="aa-subtab-forecast" class="aa-subtab-panel">
-    <div class="card">
-      <div class="card-title">Forecasting of Attendance</div>
-      <div class="card-subtitle">
-        Scenario-based forecast of expected attendance and expected no-show under different booking levels.
-      </div>
-
-      <iframe class="graph-frame" src="ga_attendance_forecast_scenarios.html" loading="lazy"></iframe>
-    </div>
-  </div>
-
-  <!-- STYLES -->
-  <style>
-    .aa-subtab-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 18px 0 18px 0;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 4px;
-    }
-    .aa-subtab-btn {
-      border: none;
-      background: transparent;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      color: #4b5563;
-      letter-spacing: 0.02em;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-    .aa-subtab-btn:hover { background: #e5e7eb; }
-    .aa-subtab-btn.aa-active { background: #111827; color: #f9fafb; }
-
-    .aa-subtab-panel { display: none; }
-    .aa-subtab-panel.aa-active { display: block; }
-  </style>
-
-  <!-- JS -->
-  <script>
-    function showAASubtab(id) {
-      document.querySelectorAll('#tab-attendance .aa-subtab-panel')
-        .forEach(p => p.classList.remove('aa-active'));
-
-      document.querySelectorAll('#tab-attendance .aa-subtab-btn')
-        .forEach(b => b.classList.remove('aa-active'));
-
-      document.getElementById('aa-subtab-' + id).classList.add('aa-active');
-      document.getElementById('aa-btn-' + id).classList.add('aa-active');
-    }
-  </script>
-</section>
-
-      
-
-      
+      <!-- TRENDS -->
+      <section id="tab-trends" class="tab-content">
+        <h1 class="section-title">Trends Analysis</h1>
+        <iframe class="graph-frame" src="ga_monthly_trends.html"></iframe>
+      </section>
+
+      <!-- FORECAST -->
+      <section id="tab-forecast" class="tab-content">
+        <h1 class="section-title">Forecasting & Candidates</h1>
+        <iframe class="map-frame" src="kid_schools_programs_buffers_with_legend_and_forecast1.html"></iframe>
+      </section>
+
+      <!-- LADDER -->
+      <section id="tab-ladder" class="tab-content">
+        <h1 class="section-title">Engagement Ladder</h1>
+        <iframe class="graph-frame" src="three_stage_engagement_sankey.html"></iframe>
+      </section>
+
+      <!-- ATTENDANCE -->
+      <section id="tab-attendance" class="tab-content">
+        <h1 class="section-title">Attendance & Attrition</h1>
+        <iframe class="graph-frame" src="ga_attendance_attrition.html"></iframe>
+      </section>
 
     </div>
   </div>
@@ -1323,17 +223,13 @@
 
 <script>
   function switchTab(name) {
-    document.querySelectorAll('.tab-content').forEach(sec => {
-      sec.classList.remove('active');
-    });
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
     document.getElementById('tab-' + name).classList.add('active');
 
-    document.querySelectorAll('.nav-button').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    document.querySelectorAll('.nav-button').forEach(btn => {
-      if (btn.getAttribute('onclick').includes("'" + name + "'")) {
-        btn.classList.add('active');
+    document.querySelectorAll('.nav-button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.nav-button').forEach(b => {
+      if (b.getAttribute('onclick')?.includes("'" + name + "'")) {
+        b.classList.add('active');
       }
     });
   }
