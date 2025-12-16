@@ -873,12 +873,11 @@
   </script>
 </section>
 
-      <!-- ARIMA MODELING TAB -->
+      <!-- ARIMA MODELING TAB (REPLACEMENT) -->
 <section id="tab-arima" class="tab-content">
   <h1 class="section-title">ARIMA Modeling</h1>
   <p class="section-subtitle">
-    ARIMA-based time-series forecasting pages for each program area. Use the subtabs to switch between
-    General Admissions, Field Trips, and After-School.
+    Monthly ARIMA forecasts (next 6 months) shown alongside historical monthly totals for each program area.
   </p>
 
   <!-- SUBTABS -->
@@ -897,33 +896,64 @@
   <!-- SUBTAB 1: GA -->
   <div id="arima-subtab-ga" class="arima-subtab-panel arima-active">
     <div class="card">
-      <div class="card-title">General Admissions – Trends & ARIMA Forecast</div>
+      <div class="card-title">General Admissions – Monthly ARIMA Forecast</div>
       <div class="card-subtitle">
-        Monthly / weekly / quarterly totals and ARIMA forecasting for General Admissions.
+        The forecast suggests a modest rebound and then a steady level over the next six months, following a recent decline in monthly totals.
       </div>
-      <iframe class="map-frame" src="general_admissions_analysis.html" loading="lazy"></iframe>
+
+      <!-- rename your image file to match, or change src to your real filename -->
+      <img class="arima-img" src="arima_ga_monthly.png" alt="ARIMA Forecast – General Admissions">
+
+      <div class="card-subtitle" style="margin-top:10px;">
+        Key takeaways:
+        <ul>
+          <li>Historic monthly totals fluctuate widely, with occasional spikes and dips.</li>
+          <li>Recent months trend downward before the forecast window begins.</li>
+          <li>The ARIMA line projects a small increase and then stays fairly stable month to month.</li>
+        </ul>
+      </div>
     </div>
   </div>
 
   <!-- SUBTAB 2: FT -->
   <div id="arima-subtab-ft" class="arima-subtab-panel">
     <div class="card">
-      <div class="card-title">Field Trips – Trends & ARIMA Forecast</div>
+      <div class="card-title">Field Trips – Monthly ARIMA Forecast</div>
       <div class="card-subtitle">
-        Monthly / weekly / quarterly totals and ARIMA forecasting for Field Trips.
+        The forecast indicates a stable expected monthly level, with limited month-to-month change in the next six months.
       </div>
-      <iframe class="map-frame" src="field_trips_analysis.html" loading="lazy"></iframe>
+
+      <img class="arima-img" src="arima_ft_monthly.png" alt="ARIMA Forecast – Field Trips">
+
+      <div class="card-subtitle" style="margin-top:10px;">
+        Key takeaways:
+        <ul>
+          <li>Historic totals show strong peaks in some months and near-zero months in others.</li>
+          <li>The forecast smooths these swings and projects a steady monthly level.</li>
+          <li>This suggests planning can assume a consistent baseline demand in the near term.</li>
+        </ul>
+      </div>
     </div>
   </div>
 
   <!-- SUBTAB 3: AS -->
   <div id="arima-subtab-as" class="arima-subtab-panel">
     <div class="card">
-      <div class="card-title">After-School – Trends & ARIMA Forecast</div>
+      <div class="card-title">After-School – Monthly ARIMA Forecast</div>
       <div class="card-subtitle">
-        Monthly / weekly / quarterly totals and ARIMA forecasting for After-School.
+        The forecast shows a short decline followed by a stable low level, consistent with an intermittent historical pattern.
       </div>
-      <iframe class="map-frame" src="after_school_analysis.html" loading="lazy"></iframe>
+
+      <img class="arima-img" src="arima_as_monthly.png" alt="ARIMA Forecast – After-School">
+
+      <div class="card-subtitle" style="margin-top:10px;">
+        Key takeaways:
+        <ul>
+          <li>Monthly counts are smaller and more intermittent than the other programs.</li>
+          <li>The forecast trends slightly downward early, then levels off.</li>
+          <li>This supports cautious capacity planning with a stable near-term expectation.</li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -960,6 +990,15 @@
 
     .arima-subtab-panel { display: none; }
     .arima-subtab-panel.arima-active { display: block; }
+
+    .arima-img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      display: block;
+      margin-top: 10px;
+    }
   </style>
 
   <!-- JS -->
