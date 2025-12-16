@@ -863,29 +863,110 @@
   </script>
 </section>
 
-<!-- ARIMA MODELING TAB -->
+      <!-- ARIMA MODELING TAB -->
 <section id="tab-arima" class="tab-content">
   <h1 class="section-title">ARIMA Modeling</h1>
   <p class="section-subtitle">
-    ARIMA based time series forecasting pages for each program area. Each page includes monthly / weekly / quarterly
-    totals (quantity) and an ARIMA forecast view.
+    ARIMA-based time-series forecasting pages for each program area. Use the subtabs to switch between
+    General Admissions, Field Trips, and After-School.
   </p>
 
-  <div class="card">
-    <div class="card-title">General Admissions – Trends & ARIMA Forecast</div>
-    <iframe class="map-frame" src="general_admissions_analysis.html" loading="lazy"></iframe>
+  <!-- SUBTABS -->
+  <div class="arima-subtab-bar">
+    <button class="arima-subtab-btn arima-active" onclick="showArimaSubtab('ga')" id="arima-btn-ga">
+      General Admissions
+    </button>
+    <button class="arima-subtab-btn" onclick="showArimaSubtab('ft')" id="arima-btn-ft">
+      Field Trips
+    </button>
+    <button class="arima-subtab-btn" onclick="showArimaSubtab('as')" id="arima-btn-as">
+      After-School
+    </button>
   </div>
 
-  <div class="card">
-    <div class="card-title">Field Trips – Trends & ARIMA Forecast</div>
-    <iframe class="map-frame" src="field_trips_analysis.html" loading="lazy"></iframe>
+  <!-- SUBTAB 1: GA -->
+  <div id="arima-subtab-ga" class="arima-subtab-panel arima-active">
+    <div class="card">
+      <div class="card-title">General Admissions – Trends & ARIMA Forecast</div>
+      <div class="card-subtitle">
+        Monthly / weekly / quarterly totals and ARIMA forecasting for General Admissions.
+      </div>
+      <iframe class="map-frame" src="general_admissions_analysis.html" loading="lazy"></iframe>
+    </div>
   </div>
 
-  <div class="card">
-    <div class="card-title">After-School – Trends & ARIMA Forecast</div>
-    <iframe class="map-frame" src="after_school_analysis.html" loading="lazy"></iframe>
+  <!-- SUBTAB 2: FT -->
+  <div id="arima-subtab-ft" class="arima-subtab-panel">
+    <div class="card">
+      <div class="card-title">Field Trips – Trends & ARIMA Forecast</div>
+      <div class="card-subtitle">
+        Monthly / weekly / quarterly totals and ARIMA forecasting for Field Trips.
+      </div>
+      <iframe class="map-frame" src="field_trips_analysis.html" loading="lazy"></iframe>
+    </div>
   </div>
+
+  <!-- SUBTAB 3: AS -->
+  <div id="arima-subtab-as" class="arima-subtab-panel">
+    <div class="card">
+      <div class="card-title">After-School – Trends & ARIMA Forecast</div>
+      <div class="card-subtitle">
+        Monthly / weekly / quarterly totals and ARIMA forecasting for After-School.
+      </div>
+      <iframe class="map-frame" src="after_school_analysis.html" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- STYLES -->
+  <style>
+    .arima-subtab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 18px 0;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 4px;
+    }
+
+    .arima-subtab-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #4b5563;
+      letter-spacing: 0.02em;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .arima-subtab-btn:hover { background: #e5e7eb; }
+
+    .arima-subtab-btn.arima-active {
+      background: #111827;
+      color: #f9fafb;
+    }
+
+    .arima-subtab-panel { display: none; }
+    .arima-subtab-panel.arima-active { display: block; }
+  </style>
+
+  <!-- JS -->
+  <script>
+    function showArimaSubtab(id) {
+      document.querySelectorAll('#tab-arima .arima-subtab-panel')
+        .forEach(p => p.classList.remove('arima-active'));
+
+      document.querySelectorAll('#tab-arima .arima-subtab-btn')
+        .forEach(b => b.classList.remove('arima-active'));
+
+      document.getElementById('arima-subtab-' + id).classList.add('arima-active');
+      document.getElementById('arima-btn-' + id).classList.add('arima-active');
+    }
+  </script>
 </section>
+
 
       
     <!-- FORECASTING & CANDIDATES TAB -->
