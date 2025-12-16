@@ -1224,37 +1224,95 @@
   </script>
 </section>
 
+      <!-- ATTENDANCE & ATTRITION TAB -->
+<section id="tab-attendance" class="tab-content">
+  <h1 class="section-title">Attendance & Attrition</h1>
+  <p class="section-subtitle">
+    This section summarizes attendance outcomes (attended vs no-show) and shows scenario-based
+    forecasting to support planning and capacity decisions.
+  </p>
+
+  <!-- SUBTABS -->
+  <div class="aa-subtab-bar">
+    <button class="aa-subtab-btn aa-active" onclick="showAASubtab('attrition')" id="aa-btn-attrition">
+      Attendance & Attrition
+    </button>
+    <button class="aa-subtab-btn" onclick="showAASubtab('forecast')" id="aa-btn-forecast">
+      Forecasting of Attendance
+    </button>
+  </div>
+
+  <!-- SUBTAB 1 -->
+  <div id="aa-subtab-attrition" class="aa-subtab-panel aa-active">
+    <div class="card">
+      <div class="card-title">Attendance & Attrition</div>
+      <div class="card-subtitle">
+        Overview of attended vs no-show outcomes for General Admissions.
+      </div>
+
+      <iframe class="graph-frame" src="ga_attendance_attrition.html" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- SUBTAB 2 -->
+  <div id="aa-subtab-forecast" class="aa-subtab-panel">
+    <div class="card">
+      <div class="card-title">Forecasting of Attendance</div>
+      <div class="card-subtitle">
+        Scenario-based forecast of expected attendance and expected no-show under different booking levels.
+      </div>
+
+      <iframe class="graph-frame" src="ga_attendance_forecast_scenarios.html" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- STYLES -->
+  <style>
+    .aa-subtab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 18px 0;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 4px;
+    }
+    .aa-subtab-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #4b5563;
+      letter-spacing: 0.02em;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .aa-subtab-btn:hover { background: #e5e7eb; }
+    .aa-subtab-btn.aa-active { background: #111827; color: #f9fafb; }
+
+    .aa-subtab-panel { display: none; }
+    .aa-subtab-panel.aa-active { display: block; }
+  </style>
+
+  <!-- JS -->
+  <script>
+    function showAASubtab(id) {
+      document.querySelectorAll('#tab-attendance .aa-subtab-panel')
+        .forEach(p => p.classList.remove('aa-active'));
+
+      document.querySelectorAll('#tab-attendance .aa-subtab-btn')
+        .forEach(b => b.classList.remove('aa-active'));
+
+      document.getElementById('aa-subtab-' + id).classList.add('aa-active');
+      document.getElementById('aa-btn-' + id).classList.add('aa-active');
+    }
+  </script>
+</section>
+
       
 
-      <!-- EQUITY & METHODS TAB -->
-      <section id="tab-equity" class="tab-content">
-        <h1 class="section-title">Equity & Methods</h1>
-        <p class="section-subtitle">
-          Definitions and methodological notes for how “Title I”, “CEP”, high FARMs,
-          “underserved”, and “underrepresented” are used in this dashboard.
-        </p>
-
-        <div class="card">
-          <div class="card-title">Equity lenses</div>
-          <div class="card-subtitle">
-            You can replace this placeholder text with your official definitions and notes.
-          </div>
-          <ul style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
-            <li><b>Title I:</b> Schools designated as Title I in 2025–26.</li>
-            <li><b>CEP:</b> Schools participating in the Community Eligibility Provision.</li>
-            <li><b>High FARMs:</b> Schools above a chosen FARMs threshold (e.g., &gt; 40%).</li>
-            <li><b>Underserved / Underrepresented:</b> Composite flags using FARMs and race/ethnicity indicators.</li>
-          </ul>
-
-          <div class="pill-row">
-            <span class="pill">Title I</span>
-            <span class="pill">CEP</span>
-            <span class="pill">High FARMs</span>
-            <span class="pill">Underserved</span>
-            <span class="pill">Underrepresented</span>
-          </div>
-        </div>
-      </section>
+      
 
     </div>
   </div>
