@@ -249,8 +249,7 @@
     <button class="nav-button" onclick="switchTab('trends')">Trends & Attrition</button>
     <button class="nav-button" onclick="switchTab('forecast')">Forecasting & Candidates</button>
     <button class="nav-button" onclick="switchTab('ladder')">Engagement Ladder</button>
-    <button class="nav-button" onclick="switchTab('aa')">Attendance & Attrition</button>
-
+    <button class="nav-button" onclick="switchTab('equity')">Equity & Methods</button>
   </aside>
 
   <!-- MAIN -->
@@ -1226,113 +1225,57 @@
 
       
 
-   <!-- ATTENDANCE & ATTRITION TAB -->
-<section id="tab-aa" class="tab-content">
-  <h1 class="section-title">Attendance & Attrition</h1>
-  <p class="section-subtitle">
-    Summary views of booked vs attended outcomes and scenario-based attendance forecasting for planning.
-  </p>
+      <!-- EQUITY & METHODS TAB -->
+      <section id="tab-equity" class="tab-content">
+        <h1 class="section-title">Equity & Methods</h1>
+        <p class="section-subtitle">
+          Definitions and methodological notes for how “Title I”, “CEP”, high FARMs,
+          “underserved”, and “underrepresented” are used in this dashboard.
+        </p>
 
-  <!-- SUBTABS FOR ATTENDANCE & ATTRITION -->
-  <div class="aa-subtab-bar">
-    <button class="aa-subtab-btn aa-active" onclick="showAASubtab('attrition')" id="aa-btn-attrition">
-      Attendance & Attrition
-    </button>
-    <button class="aa-subtab-btn" onclick="showAASubtab('forecast')" id="aa-btn-forecast">
-      Attendance Forecast
-    </button>
-  </div>
+        <div class="card">
+          <div class="card-title">Equity lenses</div>
+          <div class="card-subtitle">
+            You can replace this placeholder text with your official definitions and notes.
+          </div>
+          <ul style="font-size:0.98rem; color:#4b5563; line-height:1.7;">
+            <li><b>Title I:</b> Schools designated as Title I in 2025–26.</li>
+            <li><b>CEP:</b> Schools participating in the Community Eligibility Provision.</li>
+            <li><b>High FARMs:</b> Schools above a chosen FARMs threshold (e.g., &gt; 40%).</li>
+            <li><b>Underserved / Underrepresented:</b> Composite flags using FARMs and race/ethnicity indicators.</li>
+          </ul>
 
-  <!-- SUBTAB 1: Attendance & Attrition -->
-  <div id="aa-subtab-attrition" class="aa-subtab-panel aa-active">
-    <div class="card">
-      <div class="card-title">Attendance & Attrition</div>
-      <div class="card-subtitle">
-        Overall bookings that attended vs no-show (General Admission).
-      </div>
+          <div class="pill-row">
+            <span class="pill">Title I</span>
+            <span class="pill">CEP</span>
+            <span class="pill">High FARMs</span>
+            <span class="pill">Underserved</span>
+            <span class="pill">Underrepresented</span>
+          </div>
+        </div>
+      </section>
 
-      <!-- Put your Plotly HTML file name here -->
-      <iframe class="map-frame" src="ga_attendance_attrition.html" loading="lazy"></iframe>
-
-      <p class="muted" style="margin-top:10px;">
-        CHART GENERATED IN PYTHON (PLOTLY) · HOSTED AS HTML IN THIS REPOSITORY
-      </p>
     </div>
   </div>
+</div>
 
-  <!-- SUBTAB 2: Forecast -->
-  <div id="aa-subtab-forecast" class="aa-subtab-panel">
-    <div class="card">
-      <div class="card-title">Attendance Forecast</div>
-      <div class="card-subtitle">
-        Scenario-based forecast using historical attendance and attrition rates.
-      </div>
+<script>
+  function switchTab(name) {
+    document.querySelectorAll('.tab-content').forEach(sec => {
+      sec.classList.remove('active');
+    });
+    document.getElementById('tab-' + name).classList.add('active');
 
-      <!-- Put your Plotly HTML file name here -->
-      <iframe class="map-frame" src="ga_attendance_forecast_scenarios.html" loading="lazy"></iframe>
-
-      <p class="muted" style="margin-top:10px;">
-        FORECAST GENERATED IN PYTHON · SCENARIO-BASED ESTIMATES
-      </p>
-    </div>
-  </div>
-
-  <!-- STYLES & JS FOR AA SUBTABS -->
-  <style>
-    .aa-subtab-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 18px 0 18px 0;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 4px;
-    }
-
-    .aa-subtab-btn {
-      border: none;
-      background: transparent;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      color: #4b5563;
-      letter-spacing: 0.02em;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    .aa-subtab-btn:hover {
-      background: #e5e7eb;
-    }
-
-    .aa-subtab-btn.aa-active {
-      background: #111827;
-      color: #f9fafb;
-    }
-
-    .aa-subtab-panel {
-      display: none;
-    }
-
-    .aa-subtab-panel.aa-active {
-      display: block;
-    }
-  </style>
-
-  <script>
-    function showAASubtab(id) {
-      document.querySelectorAll('#tab-aa .aa-subtab-panel')
-        .forEach(p => p.classList.remove('aa-active'));
-
-      document.querySelectorAll('#tab-aa .aa-subtab-btn')
-        .forEach(b => b.classList.remove('aa-active'));
-
-      document.getElementById('aa-subtab-' + id).classList.add('aa-active');
-      document.getElementById('aa-btn-' + id).classList.add('aa-active');
-    }
-  </script>
-</section>
-
+    document.querySelectorAll('.nav-button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    document.querySelectorAll('.nav-button').forEach(btn => {
+      if (btn.getAttribute('onclick').includes("'" + name + "'")) {
+        btn.classList.add('active');
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
