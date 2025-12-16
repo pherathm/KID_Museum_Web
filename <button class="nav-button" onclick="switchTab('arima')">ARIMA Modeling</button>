@@ -1056,6 +1056,65 @@
     engagement such as general admission and membership-style visits.
   </p>
 
+<section id="tab-arima" class="tab-content">
+  <h1 class="section-title">ARIMA Modeling</h1>
+
+  <p class="section-subtitle">
+    Time-series modeling using ARIMA to analyze attendance patterns and
+    forecast future participation across KID Museum programs.
+  </p>
+
+  <!-- SUBTAB BAR -->
+  <div class="arima-subtab-bar">
+    <button class="arima-subtab-btn arima-active"
+            onclick="showArimaSubtab('ga')" id="arima-btn-ga">
+      General Admissions
+    </button>
+
+    <button class="arima-subtab-btn"
+            onclick="showArimaSubtab('ft')" id="arima-btn-ft">
+      Field Trips
+    </button>
+
+    <button class="arima-subtab-btn"
+            onclick="showArimaSubtab('as')" id="arima-btn-as">
+      After-School
+    </button>
+  </div>
+
+  <!-- GA -->
+  <div id="arima-subtab-ga" class="arima-subtab-panel arima-active">
+    <div class="card">
+      <div class="card-title">General Admissions – ARIMA Analysis</div>
+      <iframe class="graph-frame"
+              src="general_admissions_analysis.html"
+              loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- FT -->
+  <div id="arima-subtab-ft" class="arima-subtab-panel">
+    <div class="card">
+      <div class="card-title">Field Trips – ARIMA Analysis</div>
+      <iframe class="graph-frame"
+              src="field_trips_analysis.html"
+              loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- AS -->
+  <div id="arima-subtab-as" class="arima-subtab-panel">
+    <div class="card">
+      <div class="card-title">After-School – ARIMA Analysis</div>
+      <iframe class="graph-frame"
+              src="after_school_analysis.html"
+              loading="lazy"></iframe>
+    </div>
+  </div>
+
+</section>
+
+  
   <!-- SUBTABS FOR ENGAGEMENT LADDER -->
   <div class="ladder-subtab-bar">
     <button class="ladder-subtab-btn ladder-active" onclick="showLadderSubtab('s1')" id="ladder-btn-s1">
